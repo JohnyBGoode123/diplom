@@ -1,0 +1,16 @@
+{
+  "arraySymptoms":[
+    
+    {
+      "name": "Головная боль",
+      "idBodyParts": 1
+    },
+     {
+      "name": "Насморк",
+      "arraySymptoms": 1
+    }
+    
+    
+    ]
+  
+}
