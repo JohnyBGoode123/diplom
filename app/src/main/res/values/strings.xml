@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">Diplom</string>
+    <string name="titleStartFragment">Название приложения</string>
+    <string name="buttonChoseSymptoms">Выбор симптомов</string>
+    <string name="buttonHistory">Просмотр истории диагнозов</string>
+    <string name="buttonEmergencyCall">Экстренный вызов</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>
