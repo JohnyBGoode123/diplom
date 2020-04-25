@@ -10,8 +10,8 @@ import com.example.diplom.common.models.SymptomsModel
 @Dao
 abstract class Dao {
 
-    @Query("SELECT * FROM BodyParts")
-    abstract suspend fun getAllBodyParts(): List<BodyParts>
+//    @Query("SELECT * FROM BodyParts")
+//    abstract suspend  fun getAllBodyParts(): List<BodyParts?>
 
     @Entity
     class BodyParts(

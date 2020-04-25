@@ -3,11 +3,11 @@
     
     {
       "name": "Головная боль",
-      "idBodyParts": 1
+      "idBodyParts": "Голова"
     },
      {
       "name": "Насморк",
-      "arraySymptoms": 1
+      "idBodyParts": "Голова"
     }
     
     
