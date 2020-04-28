@@ -7,4 +7,14 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+
+    <string name="CBPb_Head">Голова</string>
+    <string name="CBPb_Throat">Горло</string>
+    <string name="CBPb_Chest">Грудь</string>
+    <string name="CBPb_Stomach">Живот</string>
+    <string name="CBPb_Skin">Кожа</string>
+    <string name="CBPb_GeneralMalaise">Общее недомоганание</string>
+    <string name="CBPb_action">Общий список симптомов</string>
+
+
 </resources>

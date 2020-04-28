@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ChooseBodyPart">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:orientation="horizontal">
+
+
+        <Button
+            style="@style/ChooseBodyPart_Button"
+            android:text="@string/CBPb_Head"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:ignore="ButtonStyle">
+
+        </Button>
+
+
+        <Button
+            style="@style/ChooseBodyPart_Button"
+            android:text="@string/CBPb_Throat"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+>
+
+        </Button>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:orientation="horizontal">
+
+
+        <Button
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@style/ChooseBodyPart_Button"
+            android:text="@string/CBPb_Chest">
+
+        </Button>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@style/ChooseBodyPart_Button"
+            android:text="@string/CBPb_Stomach">
+
+        </Button>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:orientation="horizontal">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@style/ChooseBodyPart_Button"
+            android:text="@string/CBPb_Skin">
+
+        </Button>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            style="@style/ChooseBodyPart_Button"
+            android:text="@string/CBPb_GeneralMalaise">
+
+        </Button>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        >
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:layout_gravity="end"
+
+
+            android:text="@string/CBPb_action">
+
+
+        </Button>
+    </LinearLayout>
+
+
+</LinearLayout>
