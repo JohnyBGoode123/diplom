@@ -8,7 +8,7 @@ import com.example.diplom.common.models.BodyPartsModel
 import com.example.diplom.common.models.SymptomsModel
 
 @Dao
-abstract class Dao {
+abstract class DaoSymptoms {
 
 //    @Query("SELECT * FROM BodyParts")
 //    abstract suspend  fun getAllBodyParts(): List<BodyParts?>

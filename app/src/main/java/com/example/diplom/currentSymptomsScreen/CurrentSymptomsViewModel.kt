@@ -1,4 +1,4 @@
-package com.example.diplom.currenSymptomsScreen
+package com.example.diplom.currentSymptomsScreen
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

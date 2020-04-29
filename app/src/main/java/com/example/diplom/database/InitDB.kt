@@ -8,7 +8,7 @@ init {
 initDB = App.instance?.getDatabase()?.getDao()
 }
     companion object {
-        var initDB: Dao? = null
+        var initDB: DaoSymptoms? = null
     }
 
     fun fillBD()

@@ -5,12 +5,12 @@ import androidx.room.RoomDatabase
 
 @Database(
     entities = [
-        Dao.BodyParts::class,
-        Dao.Symptoms::class
+        DaoSymptoms.BodyParts::class,
+        DaoSymptoms.Symptoms::class
     ],
     version = 2
 )
 
 abstract class AppDataBase: RoomDatabase(){
-    abstract fun getDao(): Dao
+    abstract fun getDao(): DaoSymptoms
 }

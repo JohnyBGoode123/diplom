@@ -24,7 +24,7 @@
     </fragment>
     <fragment
         android:id="@+id/currentSymptoms"
-        android:name="com.example.diplom.currenSymptomsScreen.CurrentSymptoms"
+        android:name="com.example.diplom.currentSymptomsScreen.CurrentSymptoms"
         android:label="fragment_current_symptoms"
         tools:layout="@layout/fragment_current_symptoms" />
     <fragment
