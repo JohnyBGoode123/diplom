@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".BlankFragment">
+    tools:context=".StartScreen">
 
     <!-- TODO: Update blank fragment layout -->
     <LinearLayout
@@ -13,7 +13,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="30sp"
+            android:textSize="15sp"
             android:textStyle="italic"
             android:textColor="#008080"
             android:text="@string/titleStartFragment"
@@ -24,11 +24,14 @@
 
         <Button
             style="@style/Start_fragment_buttons"
+            android:id="@+id/nextScreen"
             android:layout_width="wrap_content"
-            android:layout_height="80dp"
+            android:layout_height="wrap_content"
             android:text="@string/buttonChoseSymptoms"
-            android:layout_marginTop="150dp"
-            ></Button>
+            android:layout_marginTop="20dp"
+            >
+
+        </Button>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

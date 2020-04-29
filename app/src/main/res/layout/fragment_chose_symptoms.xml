@@ -16,9 +16,9 @@
 
         <Button
             style="@style/ChooseBodyPart_Button"
-            android:text="@string/CBPb_Head"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:text="@string/CBPb_Head"
             tools:ignore="ButtonStyle">
 
         </Button>
@@ -26,10 +26,9 @@
 
         <Button
             style="@style/ChooseBodyPart_Button"
-            android:text="@string/CBPb_Throat"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
->
+            android:text="@string/CBPb_Throat">
 
         </Button>
     </LinearLayout>
@@ -44,16 +43,17 @@
 
         <Button
 
+            style="@style/ChooseBodyPart_Button"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            style="@style/ChooseBodyPart_Button"
             android:text="@string/CBPb_Chest">
 
         </Button>
+
         <Button
+            style="@style/ChooseBodyPart_Button"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            style="@style/ChooseBodyPart_Button"
             android:text="@string/CBPb_Stomach">
 
         </Button>
@@ -67,16 +67,17 @@
         android:orientation="horizontal">
 
         <Button
+            style="@style/ChooseBodyPart_Button"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            style="@style/ChooseBodyPart_Button"
             android:text="@string/CBPb_Skin">
 
         </Button>
+
         <Button
+            style="@style/ChooseBodyPart_Button"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            style="@style/ChooseBodyPart_Button"
             android:text="@string/CBPb_GeneralMalaise">
 
         </Button>
@@ -86,14 +87,13 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="20dp"
             android:layout_gravity="end"
+            android:layout_margin="5dp"
 
 
             android:text="@string/CBPb_action">
