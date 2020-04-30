@@ -9,18 +9,17 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.diplom.R
+import com.example.diplom.common.App
+
 class CurrentSymptoms : Fragment() {
+    private val viewModel: CurrentSymptomsViewModel by viewModels {
 
-
-
-
-//    private val viewModel: CurrentSymptomsViewModel by viewModels {
-//
-//        object : ViewModelProvider.Factory {
-//            override fun <T : ViewModel?> create(modelClass: Class<T>): T =
-//                CurrentSymptomsViewModel("Голова", ) as T
-//        }
-//    }
+        object : ViewModelProvider.Factory {
+            override fun <T : ViewModel?> create(modelClass: Class<T>): T =
+                CurrentSymptomsViewModel("Голова", App.repositories.currentSymptoms()) as T
+        }
+    }
+   // private lateinit var dataBinding: CurrentSymptomsBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
