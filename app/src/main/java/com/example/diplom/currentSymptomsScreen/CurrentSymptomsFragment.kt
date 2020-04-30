@@ -17,7 +17,7 @@ import com.example.diplom.databinding.FragmentCurrentSymptomsBinding
 import kotlinx.android.synthetic.main.fragment_current_symptoms.*
 
 class CurrentSymptomsFragment : Fragment() {
-     val viewModel: CurrentSymptomsViewModel by viewModels {
+     private val viewModel: CurrentSymptomsViewModel by viewModels {
 
         object : ViewModelProvider.Factory {
             override fun <T : ViewModel?> create(modelClass: Class<T>): T =
