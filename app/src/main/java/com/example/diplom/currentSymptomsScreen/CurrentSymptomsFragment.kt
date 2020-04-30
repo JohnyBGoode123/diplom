@@ -13,17 +13,18 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.diplom.R
 import com.example.diplom.common.App
 import com.example.diplom.common.models.SymptomsModel
+import com.example.diplom.databinding.FragmentCurrentSymptomsBinding
 import kotlinx.android.synthetic.main.fragment_current_symptoms.*
 
 class CurrentSymptomsFragment : Fragment() {
-    private val viewModel: CurrentSymptomsViewModel by viewModels {
+     val viewModel: CurrentSymptomsViewModel by viewModels {
 
         object : ViewModelProvider.Factory {
             override fun <T : ViewModel?> create(modelClass: Class<T>): T =
                 CurrentSymptomsViewModel("Голова", App.repositories.currentSymptoms()) as T
         }
     }
-    private lateinit var dataBinding: FragmentCurrentSymptomsDinding
+    private lateinit var dataBinding: FragmentCurrentSymptomsBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,13 +37,12 @@ class CurrentSymptomsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        dataBinding = FragmentCurrentSymptomsDinding.inflate(R.layout.fragment_current_symptoms, container, false)
-        return dataBinding
+        dataBinding = FragmentCurrentSymptomsBinding.inflate(inflater, container, false)
+        return dataBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        dataBinding.viewModel = viewModel
         dataBinding.lifecycleOwner = viewLifecycleOwner
 
         /*LayoutManager отвечает за позиционирование view-компонентов в RecyclerView, а также за определение того, когда следует переиспользовать view-компоненты,
