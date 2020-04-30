@@ -1,28 +1,39 @@
 package com.example.diplom.currentSymptomsScreen
 
+import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.diplom.common.models.SymptomsModel
-import com.example.diplom.databinding.CurrentSymptomsBinding
+import com.example.diplom.databinding.CurrentSymptomsListItemBinding
 
 class CurrentSymptomsAdapter(
     private var listSymptoms: List<SymptomsModel>,
     private var viewModel: CurrentSymptomsViewModel
-):RecyclerView.Adapter<CurrentSymptomsAdapter.CurrentSymptomsViewHolder>() {
+) : RecyclerView.Adapter<CurrentSymptomsAdapter.CurrentSymptomsViewHolder>() {
 
 
-    class CurrentSymptomsViewHolder(private val symptomsBinding: CurrentSymptomsBinding):RecyclerView.ViewHolder(symptomsBinding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CurrentSymptomsViewHolder {
-        TODO("Not yet implemented")
+        val dietBinding = CurrentSymptomsListItemBinding.inflate(
+            LayoutInflater.from(parent.context),
+            parent,
+            false
+        )
+        return CurrentSymptomsViewHolder(dietBinding)
     }
 
     override fun getItemCount(): Int {
-        TODO("Not yet implemented")
+        return listSymptoms.size
     }
 
     override fun onBindViewHolder(holder: CurrentSymptomsViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        holder.symptomsBinding.choose = listSymptoms[position].selectionMark
+        holder.symptomsBinding.nameSymptom = listSymptoms[position].nameSymptom
+
     }
+
+
+    class CurrentSymptomsViewHolder( val symptomsBinding: CurrentSymptomsListItemBinding) :
+        RecyclerView.ViewHolder(symptomsBinding.root)
 
 }

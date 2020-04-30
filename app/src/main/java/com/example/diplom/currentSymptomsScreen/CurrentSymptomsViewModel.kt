@@ -15,7 +15,7 @@ class CurrentSymptomsViewModel(
             field = value
             listSymptoms.postValue(value)
         }
-    private val listSymptoms: MutableLiveData<List<SymptomsModel>> = MutableLiveData()
+     val listSymptoms: MutableLiveData<List<SymptomsModel>> = MutableLiveData()
 
 
     init {

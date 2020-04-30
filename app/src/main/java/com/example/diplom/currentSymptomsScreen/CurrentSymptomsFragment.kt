@@ -6,10 +6,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.diplom.R
 import com.example.diplom.common.App
+import com.example.diplom.common.models.SymptomsModel
+import kotlinx.android.synthetic.main.fragment_current_symptoms.*
 
 class CurrentSymptomsFragment : Fragment() {
     private val viewModel: CurrentSymptomsViewModel by viewModels {
@@ -19,7 +23,7 @@ class CurrentSymptomsFragment : Fragment() {
                 CurrentSymptomsViewModel("Голова", App.repositories.currentSymptoms()) as T
         }
     }
-   // private lateinit var dataBinding: CurrentSymptomsBinding
+    private lateinit var dataBinding: FragmentCurrentSymptomsDinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,10 +32,28 @@ class CurrentSymptomsFragment : Fragment() {
 
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_current_symptoms, container, false)
+        dataBinding = FragmentCurrentSymptomsDinding.inflate(R.layout.fragment_current_symptoms, container, false)
+        return dataBinding
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        dataBinding.viewModel = viewModel
+        dataBinding.lifecycleOwner = viewLifecycleOwner
+
+        /*LayoutManager отвечает за позиционирование view-компонентов в RecyclerView, а также за определение того, когда следует переиспользовать view-компоненты,
+        которые больше не видны пользователю.*/
+        // requireContext возвращает контекст, который не может быть null. Для этого эту функцию нужно вызывать когда
+        // фрагмент уже создан и привязан к root (onResume, onViewCreated, etc )
+        my_recycler_view.layoutManager = LinearLayoutManager(requireContext()) // Мне нужен список, поэтому вызываю LinearLayoutManager
+
+        val symptomsObserver = Observer<List<SymptomsModel>> { it ->
+            my_recycler_view.adapter = CurrentSymptomsAdapter(it, viewModel) // суть в присоединении адаптера, но
+        }
+        viewModel.listSymptoms.observe(viewLifecycleOwner, symptomsObserver)
     }
 }
