@@ -11,7 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.diplom.R
 import com.example.diplom.common.App
 
-class CurrentSymptoms : Fragment() {
+class CurrentSymptomsFragment : Fragment() {
     private val viewModel: CurrentSymptomsViewModel by viewModels {
 
         object : ViewModelProvider.Factory {
@@ -25,6 +25,7 @@ class CurrentSymptoms : Fragment() {
         super.onCreate(savedInstanceState)
 
     }
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
