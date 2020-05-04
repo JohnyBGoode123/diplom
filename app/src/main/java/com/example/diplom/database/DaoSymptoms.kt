@@ -1,9 +1,6 @@
 package com.example.diplom.database
 
-import androidx.room.Dao
-import androidx.room.Entity
-import androidx.room.PrimaryKey
-import androidx.room.Query
+import androidx.room.*
 import com.example.diplom.common.models.BodyPartsModel
 import com.example.diplom.common.models.SymptomsModel
 
@@ -11,8 +8,15 @@ import com.example.diplom.common.models.SymptomsModel
 abstract class DaoSymptoms {
 
     @Query("SELECT * FROM Symptoms Where idBodyParts = :nameBodyPart ")
-    abstract suspend  fun getAllBodyParts(nameBodyPart: String): List<Symptoms>
+    abstract suspend  fun getSymptomsByBodyPart(nameBodyPart: String): List<Symptoms>
 
+    @Query("SELECT * FROM Symptoms")
+    abstract suspend  fun getAllSymptoms(): List<Symptoms>
+
+    @Update
+    abstract suspend fun updateSymptoms(symptoms: List<Symptoms>)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    abstract suspend fun insertSymptoms(symptoms: MutableCollection<Symptoms>)
     @Entity
     class BodyParts(
         @PrimaryKey

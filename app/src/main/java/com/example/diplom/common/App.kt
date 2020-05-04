@@ -9,7 +9,7 @@ import com.example.diplom.database.AppDataBase
 import com.example.diplom.database.InitDB
 
 class App: Application() {
-    private var initDB: InitDB? = null
+    private lateinit var initDB: InitDB
     private var database:  AppDataBase? = null
     override fun onCreate() {
         super.onCreate()
@@ -22,6 +22,8 @@ class App: Application() {
             .appDataBase(database)
             .currentSymptomsModule(CurrentSymptomsModule())
             .build()
+        initDB = InitDB()
+        initDB.fillBD(applicationContext)
 
     }
 

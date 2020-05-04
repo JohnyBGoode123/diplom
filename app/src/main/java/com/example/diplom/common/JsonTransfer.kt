@@ -7,9 +7,9 @@ import com.example.diplom.database.DaoSymptoms
 import com.google.gson.Gson
 
 class JsonTransfer(_ctx: Context) {
-    var listBodyParts: MutableCollection<DaoSymptoms.BodyParts>? =
+    var listBodyParts: MutableCollection<DaoSymptoms.BodyParts> =
         mutableListOf()
-    var listSymptoms: MutableCollection<DaoSymptoms.Symptoms>? =
+    var listSymptoms: MutableCollection<DaoSymptoms.Symptoms> =
         mutableListOf()
     private var context: Context? = _ctx
     private fun getJsonString(fileString: String): String =
