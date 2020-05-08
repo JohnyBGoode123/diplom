@@ -20,13 +20,19 @@
         tools:layout="@layout/fragment_chose_symptoms" >
         <action
             android:id="@+id/action_ChoosePartBodyScreen_to_currentSymptoms"
-            app:destination="@id/currentSymptoms" />
+            app:destination="@id/currentSymptoms">
+        </action>
+
     </fragment>
     <fragment
         android:id="@+id/currentSymptoms"
         android:name="com.example.diplom.currentSymptomsScreen.CurrentSymptomsFragment"
         android:label="fragment_current_symptoms"
-        tools:layout="@layout/fragment_current_symptoms" />
+        tools:layout="@layout/fragment_current_symptoms" >
+        <argument
+            android:name="buttonText"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/blankFragment4"
         android:name="com.example.diplom.BlankFragment4"

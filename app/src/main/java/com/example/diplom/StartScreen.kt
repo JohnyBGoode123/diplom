@@ -32,6 +32,10 @@ class StartScreen : Fragment() {
         }
     }
 
+    fun ClickButton(view: View)
+    {
+
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,7 +49,6 @@ class StartScreen : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         button.setOnClickListener {
             val action = StartScreenDirections.actionStartScreenToChoosePartBodyScreen()
             this.findNavController().navigate(action)
@@ -71,4 +74,6 @@ class StartScreen : Fragment() {
                 }
             }
     }
+
+
 }

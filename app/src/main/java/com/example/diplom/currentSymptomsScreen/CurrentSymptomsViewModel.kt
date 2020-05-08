@@ -28,5 +28,12 @@ class CurrentSymptomsViewModel(
             }
             listSymptoms?.let {_listSymptoms = it}
         }
+
+
+    }
+    fun updateSymptoms()
+    {
+        val d = listSymptoms.value?.get(0)?.selectionMark
+        val q = listSymptoms.value?.get(1)?.selectionMark
     }
 }

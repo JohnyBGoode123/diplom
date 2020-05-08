@@ -9,6 +9,8 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavArgs
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.diplom.R
 import com.example.diplom.common.App
@@ -17,12 +19,14 @@ import com.example.diplom.databinding.FragmentCurrentSymptomsBinding
 import kotlinx.android.synthetic.main.fragment_current_symptoms.*
 
 class CurrentSymptomsFragment : Fragment() {
+val args: CurrentSymptomsFragmentArgs by navArgs()
      private val viewModel: CurrentSymptomsViewModel by viewModels {
 
         object : ViewModelProvider.Factory {
             override fun <T : ViewModel?> create(modelClass: Class<T>): T =
-                CurrentSymptomsViewModel("Голова", App.repositories.currentSymptoms()) as T
+                CurrentSymptomsViewModel(args.buttonText, App.repositories.currentSymptoms()) as T
         }
+
     }
     private lateinit var dataBinding: FragmentCurrentSymptomsBinding
 
@@ -38,6 +42,8 @@ class CurrentSymptomsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         dataBinding = FragmentCurrentSymptomsBinding.inflate(inflater, container, false)
+        dataBinding.acceptButton.setOnClickListener{
+            viewModel.updateSymptoms()}
         return dataBinding.root
     }
 
@@ -55,5 +61,6 @@ class CurrentSymptomsFragment : Fragment() {
             my_recycler_view.adapter = CurrentSymptomsAdapter(it, viewModel) // суть в присоединении адаптера, но
         }
         viewModel.listSymptoms.observe(viewLifecycleOwner, symptomsObserver)
+
     }
 }

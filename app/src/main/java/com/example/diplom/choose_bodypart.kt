@@ -5,6 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import androidx.navigation.fragment.findNavController
+import kotlinx.android.synthetic.main.fragment_chose_symptoms.view.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -16,7 +19,7 @@ private const val ARG_PARAM2 = "param2"
  * Use the [ChooseBodyPart.newInstance] factory method to
  * create an instance of this fragment.
  */
-class ChooseBodyPart : Fragment() {
+class ChooseBodyPart : Fragment(),View.OnClickListener {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -33,8 +36,19 @@ class ChooseBodyPart : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        var v: View = inflater.inflate(R.layout.fragment_chose_symptoms, container, false)
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_chose_symptoms, container, false)
+        v.button1.setOnClickListener { buttonClick(it) }
+        v.button2.setOnClickListener { buttonClick(it) }
+        v.button3.setOnClickListener { buttonClick(it) }
+        v.button4.setOnClickListener { buttonClick(it) }
+        v.button5.setOnClickListener { buttonClick(it) }
+
+        return v
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
     }
 
     companion object {
@@ -56,4 +70,17 @@ class ChooseBodyPart : Fragment() {
                 }
             }
     }
+    private fun buttonClick(view: View) {
+        val button = view as Button
+        val buttonText: String = button.text.toString()
+        val action = ChooseBodyPartDirections.actionChoosePartBodyScreenToCurrentSymptoms(buttonText)
+        this.findNavController().navigate(action)
+    }
+
+    override fun onClick(v: View?) {
+
+
+    }
+
+
 }
