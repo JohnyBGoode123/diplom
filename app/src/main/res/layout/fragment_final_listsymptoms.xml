@@ -5,18 +5,56 @@
 
 
     </data>
-    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         tools:context=".chosenSymptomsScreen.ChosenSymptomsScreenFragment">
 
         <!-- TODO: Update blank fragment layout -->
         <TextView
+            android:id="@+id/nameScreen"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/hello_blank_fragment" />
+            android:gravity="center_horizontal"
+            android:text="@string/ChosenSymptomsScreenName"></TextView>
 
-    </FrameLayout>
+        <TextView
+            android:id="@+id/lessSymptomsName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="40dp"
+            android:text="Слишком мало симптомов">
+
+        </TextView>
+
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/lessSymptomsName"
+            android:layout_marginTop="10dp">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            </androidx.recyclerview.widget.RecyclerView>
+        </ScrollView>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="10dp"
+            android:text="@string/ChosenSymptomsScreenButton">
+
+        </Button>
+
+    </RelativeLayout>
 
 </layout>

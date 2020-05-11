@@ -16,5 +16,8 @@
     <string name="CBPb_GeneralMalaise">Общее недомоганание</string>
     <string name="CBPb_action">Общий список симптомов</string>
 
+    <string name="ChosenSymptomsScreenName">Итоговый список симптомов</string>
+    <string name="ChosenSymptomsScreenButton">Подробное диагностирование</string>
+
 
 </resources>
