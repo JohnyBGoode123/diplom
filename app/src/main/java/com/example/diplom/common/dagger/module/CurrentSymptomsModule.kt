@@ -10,7 +10,7 @@ import dagger.Provides
 class CurrentSymptomsModule {
 
     @Provides
-    fun dietList(
+    fun symptomsList(
         dao: AppDataBase
     ): CurrentSymptomsRepository = CurrentSymptomsRepositoryImplementation(
         daoSymptoms = dao.getDao()
