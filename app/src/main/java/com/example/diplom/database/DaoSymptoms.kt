@@ -13,8 +13,13 @@ abstract class DaoSymptoms {
     @Query("SELECT * FROM Symptoms")
     abstract suspend  fun getAllSymptoms(): List<Symptoms>
 
+    @Query("SELECT * FROM Symptoms Where selectionMark = 1 ")
+    abstract suspend  fun getAllChosenSymptoms(): List<Symptoms>
+
     @Update
     abstract suspend fun updateSymptoms(symptoms: List<Symptoms>?)
+    @Update
+    abstract suspend fun updateOneDeletedSymptom(symptoms: Symptoms)
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     abstract suspend fun insertSymptoms(symptoms: MutableCollection<Symptoms>)
     @Entity

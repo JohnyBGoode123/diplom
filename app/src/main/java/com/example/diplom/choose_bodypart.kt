@@ -1,11 +1,11 @@
 package com.example.diplom
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.main.fragment_chose_symptoms.view.*
 
@@ -19,7 +19,7 @@ private const val ARG_PARAM2 = "param2"
  * Use the [ChooseBodyPart.newInstance] factory method to
  * create an instance of this fragment.
  */
-class ChooseBodyPart : Fragment(),View.OnClickListener {
+class ChooseBodyPart : Fragment(), View.OnClickListener {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -36,13 +36,14 @@ class ChooseBodyPart : Fragment(),View.OnClickListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        var v: View = inflater.inflate(R.layout.fragment_chose_symptoms, container, false)
+        val v: View = inflater.inflate(R.layout.fragment_chose_symptoms, container, false)
         // Inflate the layout for this fragment
-        v.button1.setOnClickListener { buttonClick(it) }
-        v.button2.setOnClickListener { buttonClick(it) }
-        v.button3.setOnClickListener { buttonClick(it) }
-        v.button4.setOnClickListener { buttonClick(it) }
-        v.button5.setOnClickListener { buttonClick(it) }
+        v.button1.setOnClickListener { buttonBodyPartClick(it) }
+        v.button2.setOnClickListener { buttonBodyPartClick(it) }
+        v.button3.setOnClickListener { buttonBodyPartClick(it) }
+        v.button4.setOnClickListener { buttonBodyPartClick(it) }
+        v.button5.setOnClickListener { buttonBodyPartClick(it) }
+        v.ChosenSymptomsButton.setOnClickListener { buttonChosenSymptomsClick(it) }
 
         return v
     }
@@ -70,10 +71,18 @@ class ChooseBodyPart : Fragment(),View.OnClickListener {
                 }
             }
     }
-    private fun buttonClick(view: View) {
+
+    private fun buttonBodyPartClick(view: View) {
         val button = view as Button
         val buttonText: String = button.text.toString()
-        val action = ChooseBodyPartDirections.actionChoosePartBodyScreenToCurrentSymptoms(buttonText)
+        val action =
+            ChooseBodyPartDirections.actionChoosePartBodyScreenToCurrentSymptoms(buttonText)
+        this.findNavController().navigate(action)
+    }
+
+    private fun buttonChosenSymptomsClick(view: View) {
+        val action =
+            ChooseBodyPartDirections.actionChoosePartBodyScreenToChosenSymptomsScreen()
         this.findNavController().navigate(action)
     }
 

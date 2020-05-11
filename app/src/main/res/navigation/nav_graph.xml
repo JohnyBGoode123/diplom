@@ -22,6 +22,9 @@
             android:id="@+id/action_ChoosePartBodyScreen_to_currentSymptoms"
             app:destination="@id/currentSymptoms">
         </action>
+        <action
+            android:id="@+id/action_ChoosePartBodyScreen_to_chosenSymptomsScreen"
+            app:destination="@id/chosenSymptomsScreen" />
 
     </fragment>
     <fragment
@@ -34,8 +37,8 @@
             app:argType="string" />
     </fragment>
     <fragment
-        android:id="@+id/blankFragment4"
-        android:name="com.example.diplom.BlankFragment4"
+        android:id="@+id/chosenSymptomsScreen"
+        android:name="com.example.diplom.chosenSymptomsScreen.ChosenSymptomsScreenFragment"
         android:label="fragment_final_listsymptoms"
         tools:layout="@layout/fragment_final_listsymptoms" />
 </navigation>
