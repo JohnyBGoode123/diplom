@@ -1,22 +1,33 @@
 package com.example.diplom.currentSymptomsScreen
 
+import android.view.View
+import android.widget.CheckBox
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.diplom.common.models.SymptomsModel
 import kotlinx.coroutines.launch
+import java.text.FieldPosition
 
 class CurrentSymptomsViewModel(
     private val nameBodyPart: String,
     private val repository: CurrentSymptomsRepository
 ) : ViewModel() {
-    private var _listSymptoms: List<SymptomsModel>? = null
+     var _listSymptoms: List<SymptomsModel>? = null
         set(value) {
             field = value
             listSymptoms.postValue(value)
         }
-     val listSymptoms: MutableLiveData<List<SymptomsModel>> = MutableLiveData()
+     var listSymptoms: MutableLiveData<List<SymptomsModel>> = MutableLiveData()
 
+
+fun Swap(view: View, item: SymptomsModel, position: Int)
+{
+    val currentCheckBox = view as CheckBox
+    var qwe = item.selectionMark
+    qwe = currentCheckBox.isChecked
+    listSymptoms.let{ _listSymptoms?.get(position)?.selectionMark = qwe }
+}
 
     init {
         viewModelScope.launch {
@@ -26,14 +37,18 @@ class CurrentSymptomsViewModel(
                 print(t.message)
                 null
             }
-            listSymptoms?.let {_listSymptoms = it}
+            listSymptoms?.let { _listSymptoms = it}
         }
-
-
     }
     fun updateSymptoms()
     {
-        val d = listSymptoms.value?.get(0)?.selectionMark
-        val q = listSymptoms.value?.get(1)?.selectionMark
+        viewModelScope.launch {
+           try{
+               repository.updateChooseSymptoms(_listSymptoms)
+           } catch (t: Throwable){
+                print(t.message)
+                null
+            }
+        }
     }
 }

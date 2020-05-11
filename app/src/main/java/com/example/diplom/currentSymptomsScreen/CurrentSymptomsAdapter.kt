@@ -27,9 +27,9 @@ class CurrentSymptomsAdapter(
     }
 
     override fun onBindViewHolder(holder: CurrentSymptomsViewHolder, position: Int) {
-        holder.symptomsBinding.choose = listSymptoms[position].selectionMark
-        holder.symptomsBinding.nameSymptom = listSymptoms[position].nameSymptom
-
+        holder.symptomsBinding.listSymptomItem = listSymptoms[position]
+        holder.symptomsBinding.viewmodel = viewModel
+        holder.symptomsBinding.position = position
     }
 
 

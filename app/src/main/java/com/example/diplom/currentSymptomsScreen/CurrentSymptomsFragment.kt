@@ -57,9 +57,11 @@ val args: CurrentSymptomsFragmentArgs by navArgs()
         // фрагмент уже создан и привязан к root (onResume, onViewCreated, etc )
         my_recycler_view.layoutManager = LinearLayoutManager(requireContext()) // Мне нужен список, поэтому вызываю LinearLayoutManager
 
-        val symptomsObserver = Observer<List<SymptomsModel>> { it ->
+        val symptomsObserver = Observer<List<SymptomsModel>> {
             my_recycler_view.adapter = CurrentSymptomsAdapter(it, viewModel) // суть в присоединении адаптера, но
+
         }
+        my_recycler_view.adapter?.notifyDataSetChanged()
         viewModel.listSymptoms.observe(viewLifecycleOwner, symptomsObserver)
 
     }

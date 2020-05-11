@@ -6,5 +6,5 @@ interface CurrentSymptomsRepository {
 
     suspend fun getSymptomsByBodyPart(bodyPart: String): List<SymptomsModel>
 
-    suspend fun updateChooseSymptoms(chosenSymptomsModel: List<SymptomsModel>)
+    suspend fun updateChooseSymptoms(chosenSymptomsModel: List<SymptomsModel>?)
 }

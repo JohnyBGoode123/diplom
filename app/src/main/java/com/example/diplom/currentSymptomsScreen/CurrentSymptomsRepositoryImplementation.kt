@@ -10,7 +10,7 @@ class CurrentSymptomsRepositoryImplementation(
         daoSymptoms.getSymptomsByBodyPart(bodyPart)
 
 
-    override suspend fun updateChooseSymptoms(chosenSymptomsModel: List<SymptomsModel>) {
-        TODO("Not yet implemented")
+    override suspend fun updateChooseSymptoms(chosenSymptomsModel: List<SymptomsModel>?) {
+       daoSymptoms.updateSymptoms(chosenSymptomsModel as List<DaoSymptoms.Symptoms>?)
     }
 }

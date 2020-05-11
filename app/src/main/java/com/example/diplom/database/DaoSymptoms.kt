@@ -14,7 +14,7 @@ abstract class DaoSymptoms {
     abstract suspend  fun getAllSymptoms(): List<Symptoms>
 
     @Update
-    abstract suspend fun updateSymptoms(symptoms: List<Symptoms>)
+    abstract suspend fun updateSymptoms(symptoms: List<Symptoms>?)
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     abstract suspend fun insertSymptoms(symptoms: MutableCollection<Symptoms>)
     @Entity
@@ -28,7 +28,7 @@ abstract class DaoSymptoms {
         @PrimaryKey
         override val nameSymptom: String,
         override val idBodyParts: String,
-        override val selectionMark: Boolean
+        override var selectionMark: Boolean
     ) : SymptomsModel
 
 
