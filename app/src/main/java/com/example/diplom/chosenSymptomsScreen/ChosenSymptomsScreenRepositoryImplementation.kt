@@ -11,6 +11,6 @@ class ChosenSymptomsScreenRepositoryImplementation(
     }
 
     override suspend fun updateOneDeletedSymptom(symptom: SymptomsModel) {
-        TODO("Not yet implemented")
+        daoSymptoms.updateOneDeletedSymptom(symptom as DaoSymptoms.Symptoms)
     }
 }

@@ -30,6 +30,7 @@ class ChosenSymptomsScreenAdapter(
 
     override fun onBindViewHolder(holder: ChosenSymptomsScreenViewHolder, position: Int) {
         holder.symptomsBinding.symptomName = listSymptoms[position].nameSymptom
+        holder.symptomsBinding.viewmodel = viewModel
     }
 
     class ChosenSymptomsScreenViewHolder(val symptomsBinding: ChoseSymptomsListItemBinding) :

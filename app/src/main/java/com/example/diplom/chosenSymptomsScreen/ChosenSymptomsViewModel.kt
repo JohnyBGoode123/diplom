@@ -9,8 +9,8 @@ import kotlinx.coroutines.launch
 
 class ChosenSymptomsViewModel(
     private val repository: ChosenSymptomsScreenRepository
-): ViewModel() {
-     private var _listSymptoms: List<SymptomsModel>? = null
+) : ViewModel() {
+    private var _listSymptoms: List<SymptomsModel>? = null
         set(value) {
             field = value
             (listSymptoms as MutableLiveData).postValue(value)
@@ -19,21 +19,31 @@ class ChosenSymptomsViewModel(
 
     init {
         viewModelScope.launch {
-            val listSymptoms: List<SymptomsModel>? = try{
+            val listSymptoms: List<SymptomsModel>? = try {
                 repository.getAllChosenSymptoms()
-            } catch (t: Throwable){
+            } catch (t: Throwable) {
                 print(t.message)
                 null
             }
-            listSymptoms?.let { _listSymptoms = it}
+            listSymptoms?.let { _listSymptoms = it }
         }
     }
-    fun updateSymptom(symptom: SymptomsModel)
-    {
+
+    private fun findItemByName(nameSymptom: String): SymptomsModel? {
+        return _listSymptoms?.find { it.nameSymptom == nameSymptom }
+    }
+
+    fun updateSymptom(nameSymptom: String) {
+        val symptom = findItemByName(nameSymptom)
+        if (symptom != null) {
+            symptom.selectionMark = false
+        }
         viewModelScope.launch {
-            try{
-                repository.updateOneDeletedSymptom(symptom)
-            } catch (t: Throwable){
+            try {
+                if (symptom != null) {
+                    repository.updateOneDeletedSymptom(symptom)
+                }
+            } catch (t: Throwable) {
                 print(t.message)
                 null
             }
