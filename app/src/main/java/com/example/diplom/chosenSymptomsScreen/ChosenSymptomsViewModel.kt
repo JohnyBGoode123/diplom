@@ -1,5 +1,6 @@
 package com.example.diplom.chosenSymptomsScreen
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -9,12 +10,12 @@ import kotlinx.coroutines.launch
 class ChosenSymptomsViewModel(
     private val repository: ChosenSymptomsScreenRepository
 ): ViewModel() {
-    var _listSymptoms: List<SymptomsModel>? = null
+     private var _listSymptoms: List<SymptomsModel>? = null
         set(value) {
             field = value
-            listSymptoms.postValue(value)
+            (listSymptoms as MutableLiveData).postValue(value)
         }
-    var listSymptoms: MutableLiveData<List<SymptomsModel>> = MutableLiveData()
+    val listSymptoms: LiveData<List<SymptomsModel>> = MutableLiveData()
 
     init {
         viewModelScope.launch {

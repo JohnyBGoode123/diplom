@@ -1,16 +1,24 @@
 {
-  "arraySymptoms":[
-    
+  "arraySymptoms": [
     {
       "name": "Головная боль",
       "idBodyParts": "Голова"
     },
-     {
+    {
       "name": "Насморк",
       "idBodyParts": "Голова"
+    },
+    {
+      "name": "Тошнота",
+      "idBodyParts": "Живот"
+    },
+    {
+      "name": "Сыпь",
+      "idBodyParts": "Кожа"
+    },
+    {
+      "name": "Кашель",
+      "idBodyParts": "Горло"
     }
-    
-    
-    ]
-  
+  ]
 }

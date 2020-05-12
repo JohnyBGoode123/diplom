@@ -7,7 +7,7 @@ class ChosenSymptomsScreenRepositoryImplementation(
     private val daoSymptoms: DaoSymptoms
 ): ChosenSymptomsScreenRepository {
     override suspend fun getAllChosenSymptoms(): List<SymptomsModel> {
-        TODO("Not yet implemented")
+        return daoSymptoms.getAllChosenSymptoms()
     }
 
     override suspend fun updateOneDeletedSymptom(symptom: SymptomsModel) {

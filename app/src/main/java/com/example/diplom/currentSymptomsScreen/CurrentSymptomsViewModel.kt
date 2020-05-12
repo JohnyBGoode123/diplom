@@ -18,7 +18,7 @@ class CurrentSymptomsViewModel(
             field = value
             listSymptoms.postValue(value)
         }
-     var listSymptoms: MutableLiveData<List<SymptomsModel>> = MutableLiveData()
+     val listSymptoms: MutableLiveData<List<SymptomsModel>> = MutableLiveData()
 
 
 fun Swap(view: View, item: SymptomsModel, position: Int)
