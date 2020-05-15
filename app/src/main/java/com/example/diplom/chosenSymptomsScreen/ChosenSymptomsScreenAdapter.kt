@@ -31,8 +31,17 @@ class ChosenSymptomsScreenAdapter(
     override fun onBindViewHolder(holder: ChosenSymptomsScreenViewHolder, position: Int) {
         holder.symptomsBinding.symptomName = listSymptoms[position].nameSymptom
         holder.symptomsBinding.viewmodel = viewModel
+        holder.symptomsBinding.imageButton.setOnClickListener {
+            viewModel.updateSymptom(listSymptoms[position].nameSymptom)
+            deleteItem(holder.adapterPosition)
+        }
     }
 
     class ChosenSymptomsScreenViewHolder(val symptomsBinding: ChoseSymptomsListItemBinding) :
         RecyclerView.ViewHolder(symptomsBinding.root)
+    private fun deleteItem(position: Int)
+    {
+        notifyItemRemoved(position);
+        notifyItemRangeChanged(position, itemCount);
+    }
 }

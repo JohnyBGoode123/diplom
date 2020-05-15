@@ -10,22 +10,34 @@ import kotlinx.coroutines.launch
 class ChosenSymptomsViewModel(
     private val repository: ChosenSymptomsScreenRepository
 ) : ViewModel() {
-    private var _listSymptoms: List<SymptomsModel>? = null
+
+    private var _listSymptoms: MutableList<SymptomsModel>? = null
         set(value) {
             field = value
             (listSymptoms as MutableLiveData).postValue(value)
         }
-    val listSymptoms: LiveData<List<SymptomsModel>> = MutableLiveData()
+    val listSymptoms: LiveData<MutableList<SymptomsModel>> = MutableLiveData()
+
+    private var _isEmptyList = false
+        set(value) {
+            field = value
+            (isEmptyList as MutableLiveData).postValue(value)
+        }
+    val isEmptyList: LiveData<Boolean> = MutableLiveData(_isEmptyList)
+
 
     init {
+
         viewModelScope.launch {
             val listSymptoms: List<SymptomsModel>? = try {
                 repository.getAllChosenSymptoms()
+
             } catch (t: Throwable) {
                 print(t.message)
                 null
             }
-            listSymptoms?.let { _listSymptoms = it }
+            _isEmptyList = false
+            listSymptoms?.let { _listSymptoms = it as MutableList<SymptomsModel> }
         }
     }
 
@@ -33,9 +45,14 @@ class ChosenSymptomsViewModel(
         return _listSymptoms?.find { it.nameSymptom == nameSymptom }
     }
 
+    private fun deleteItmByName(symptom: SymptomsModel) {
+        _listSymptoms?.let { _listSymptoms?.remove(symptom) }
+    }
+
     fun updateSymptom(nameSymptom: String) {
         val symptom = findItemByName(nameSymptom)
         if (symptom != null) {
+            deleteItmByName(symptom)
             symptom.selectionMark = false
         }
         viewModelScope.launch {
@@ -45,8 +62,15 @@ class ChosenSymptomsViewModel(
                 }
             } catch (t: Throwable) {
                 print(t.message)
-                null
+
             }
         }
     }
+
+    fun setIsEmptyList()
+    {
+        _isEmptyList = true
+    }
+
+
 }

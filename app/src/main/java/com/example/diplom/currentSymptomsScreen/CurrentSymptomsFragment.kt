@@ -4,14 +4,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavArgs
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.diplom.ChooseBodyPartDirections
 import com.example.diplom.R
 import com.example.diplom.common.App
 import com.example.diplom.common.models.SymptomsModel
@@ -43,13 +46,16 @@ val args: CurrentSymptomsFragmentArgs by navArgs()
     ): View? {
         dataBinding = FragmentCurrentSymptomsBinding.inflate(inflater, container, false)
         dataBinding.acceptButton.setOnClickListener{
-            viewModel.updateSymptoms()}
+            viewModel.updateSymptoms()
+            buttonCurrentSymptomsClick()
+        }
         return dataBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         dataBinding.lifecycleOwner = viewLifecycleOwner
+        qwe()
 
         /*LayoutManager отвечает за позиционирование view-компонентов в RecyclerView, а также за определение того, когда следует переиспользовать view-компоненты,
         которые больше не видны пользователю.*/
@@ -64,5 +70,14 @@ val args: CurrentSymptomsFragmentArgs by navArgs()
         my_recycler_view.adapter?.notifyDataSetChanged()
         viewModel.listSymptoms.observe(viewLifecycleOwner, symptomsObserver)
 
+    }
+    private fun buttonCurrentSymptomsClick() {
+        val action =
+            CurrentSymptomsFragmentDirections.actionCurrentSymptomsToChoosePartBodyScreen()
+        this.findNavController().navigate(action)
+    }
+    fun qwe()
+    {
+        val e = 4
     }
 }

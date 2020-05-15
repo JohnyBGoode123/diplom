@@ -2,7 +2,10 @@
 <layout>
 
     <data>
-
+        <import type="android.view.View" />
+        <variable
+            name="viewmodel"
+            type="com.example.diplom.chosenSymptomsScreen.ChosenSymptomsViewModel" />
 
     </data>
 
@@ -29,7 +32,9 @@
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="40dp"
-            android:text="Слишком мало симптомов">
+            android:text="qweqwe"
+            android:visibility="@{viewmodel.isEmptyList() == true? View.VISIBLE: View.INVISIBLE}"
+            >
 
         </TextView>
 
@@ -49,6 +54,8 @@
         </ScrollView>
 
         <Button
+
+            android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
