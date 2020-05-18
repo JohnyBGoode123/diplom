@@ -13,9 +13,13 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.diplom.R
 import com.example.diplom.common.App
+import com.example.diplom.common.Constans
+import com.example.diplom.common.ScreenRoute
 import com.example.diplom.common.models.SymptomsModel
 import com.example.diplom.databinding.FragmentFinalListsymptomsBinding
+import com.example.diplom.navController
 import kotlinx.android.synthetic.main.fragment_current_symptoms.*
 import java.util.*
 
@@ -54,6 +58,8 @@ class ChosenSymptomsScreenFragment : Fragment() {
             {
                 viewModel.setIsEmptyList()
             }
+            viewModel.initRoute()
+            ScreenRoute.nextScreen()
 
         }
         return dataBinding.root
@@ -72,6 +78,8 @@ class ChosenSymptomsScreenFragment : Fragment() {
         }
         viewModel.listSymptoms.observe(viewLifecycleOwner, symptomsObserver)
 
+        val qwe = mapOf(1 to R.id.ChoosePartBodyScreen, 2 to R.id.StartScreen)
+        val e = qwe.getOrElse(1) {"qweqwe"}
     }
 
 

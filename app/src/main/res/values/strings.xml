@@ -19,5 +19,7 @@
     <string name="ChosenSymptomsScreenName">Итоговый список симптомов</string>
     <string name="ChosenSymptomsScreenButton">Подробное диагностирование</string>
 
+    <string name="emptyListSymptoms">Выберите хотя бы один симптом</string>
+
 
 </resources>

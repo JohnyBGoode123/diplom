@@ -8,7 +8,7 @@ import androidx.room.RoomDatabase
         DaoSymptoms.BodyParts::class,
         DaoSymptoms.Symptoms::class
 ],
-version = 6
+version = 7
 )
 
 abstract class AppDataBase: RoomDatabase(){

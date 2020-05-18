@@ -41,7 +41,8 @@ class JsonTransfer(_ctx: Context) {
                 DaoSymptoms.Symptoms(
                     i.name,
                     i.idBodyParts,
-                    false
+                    false,
+                    i.idScreen
                 )
             )
         }

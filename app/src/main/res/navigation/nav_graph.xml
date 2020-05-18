@@ -44,4 +44,24 @@
         android:name="com.example.diplom.chosenSymptomsScreen.ChosenSymptomsScreenFragment"
         android:label="fragment_final_listsymptoms"
         tools:layout="@layout/fragment_final_listsymptoms" />
+    <fragment
+        android:id="@+id/headacheFragment"
+        android:name="com.example.diplom.HeadacheFragment"
+        android:label="headache_fragment"
+        tools:layout="@layout/headache_fragment" />
+    <fragment
+        android:id="@+id/temperatureFragment"
+        android:name="com.example.diplom.TemperatureFragment"
+        android:label="temperature_fragment"
+        tools:layout="@layout/temperature_fragment" />
+    <fragment
+        android:id="@+id/dizzinessFragment"
+        android:name="com.example.diplom.DizzinessFragment"
+        android:label="dizziness_fragment"
+        tools:layout="@layout/dizziness_fragment" />
+    <fragment
+        android:id="@+id/diagnosisFragment"
+        android:name="com.example.diplom.DiagnosisFragment"
+        android:label="diagnosis_fragment"
+        tools:layout="@layout/diagnosis_fragment" />
 </navigation>

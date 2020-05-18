@@ -7,5 +7,6 @@ data class DCSymptoms(
 
 data class tmpSymptoms(
     var name: String,
-    var idBodyParts: String
+    var idBodyParts: String,
+    val idScreen: Int
 )

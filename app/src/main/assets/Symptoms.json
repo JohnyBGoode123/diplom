@@ -2,23 +2,43 @@
   "arraySymptoms": [
     {
       "name": "Головная боль",
-      "idBodyParts": "Голова"
+      "idBodyParts": "Голова",
+      "idScreen": 1
     },
     {
       "name": "Насморк",
-      "idBodyParts": "Голова"
+      "idBodyParts": "Голова",
+      "idScreen": 2
     },
     {
-      "name": "Тошнота",
-      "idBodyParts": "Живот"
+      "name": "Головокружение",
+      "idBodyParts": "Голова",
+      "idScreen": 1
     },
     {
-      "name": "Сыпь",
-      "idBodyParts": "Кожа"
+      "name": "Боль в горле",
+      "idBodyParts": "Горло",
+      "idScreen": 3
     },
     {
       "name": "Кашель",
-      "idBodyParts": "Горло"
+      "idBodyParts": "Горло",
+      "idScreen": 4
+    },
+    {
+      "name": "Тошнота",
+      "idBodyParts": "Живот",
+      "idScreen": 5
+    },
+    {
+      "name": "Сыпь",
+      "idBodyParts": "Кожа",
+      "idScreen": 6
+    },
+    {
+      "name": "Температура",
+      "idBodyParts": "Общее недомоганание",
+      "idScreen": 7
     }
   ]
 }

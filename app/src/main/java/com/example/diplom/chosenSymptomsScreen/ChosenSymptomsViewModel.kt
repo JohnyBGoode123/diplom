@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.diplom.common.ScreenRoute
 import com.example.diplom.common.models.SymptomsModel
 import kotlinx.coroutines.launch
 
@@ -37,7 +38,8 @@ class ChosenSymptomsViewModel(
                 null
             }
             _isEmptyList = false
-            listSymptoms?.let { _listSymptoms = it as MutableList<SymptomsModel> }
+            listSymptoms?.let {
+                _listSymptoms = it as MutableList<SymptomsModel> }
         }
     }
 
@@ -55,6 +57,7 @@ class ChosenSymptomsViewModel(
             deleteItmByName(symptom)
             symptom.selectionMark = false
         }
+
         viewModelScope.launch {
             try {
                 if (symptom != null) {
@@ -67,10 +70,27 @@ class ChosenSymptomsViewModel(
         }
     }
 
-    fun setIsEmptyList()
-    {
+    fun initRoute() {
+        val tmpList: MutableList<Int> = mutableListOf()
+      for (i in _listSymptoms?.filter { it.selectionMark }!!)
+      {
+          tmpList.add(i.idScreen)
+      }
+        ScreenRoute.initListRoute(tmpList.distinct() as MutableList<Int>)
+    }
+    fun setIsEmptyList() {
         _isEmptyList = true
     }
 
 
 }
+
+/* viewModelScope.launch {
+            var tmpList: List<Int> = try {
+                repository.getIdScreenChosenSymptoms()
+            } catch (t: Throwable) {
+                print(t.message)
+                null
+            } as List<Int>
+            ScreenRoute.setlistRoute(tmpList)
+        }*/

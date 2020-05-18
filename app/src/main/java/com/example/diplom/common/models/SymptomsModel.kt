@@ -4,5 +4,5 @@ interface SymptomsModel {
     val nameSymptom: String
     val idBodyParts: String
     var selectionMark: Boolean
+    val idScreen: Int
 }
-// android:onClick="@{(view) -> viewmodel.Swap(view, listSymptomItem,position) }"
