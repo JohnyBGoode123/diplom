@@ -1,4 +1,4 @@
-package com.example.diplom
+package com.example.diplom.chooseBodyParts
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.example.diplom.chooseBodyParts.ChooseBodyPartDirections
+import com.example.diplom.R
 import kotlinx.android.synthetic.main.fragment_chose_symptoms.view.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -76,7 +78,9 @@ class ChooseBodyPart : Fragment(), View.OnClickListener {
         val button = view as Button
         val buttonText: String = button.text.toString()
         val action =
-            ChooseBodyPartDirections.actionChoosePartBodyScreenToCurrentSymptoms(buttonText)
+            ChooseBodyPartDirections.actionChoosePartBodyScreenToCurrentSymptoms(
+                buttonText
+            )
         this.findNavController().navigate(action)
     }
 

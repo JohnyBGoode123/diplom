@@ -11,11 +11,11 @@
         tools:layout="@layout/startfragment" >
         <action
             android:id="@+id/action_StartScreen_to_ChoosePartBodyScreen"
-            app:destination="@id/ChoosePartBodyScreen" />
+            app:destination="@id/chooseBodyPartFragment" />
     </fragment>
     <fragment
-        android:id="@+id/ChoosePartBodyScreen"
-        android:name="com.example.diplom.ChooseBodyPart"
+        android:id="@+id/chooseBodyPartFragment"
+        android:name="com.example.diplom.chooseBodyParts.ChooseBodyPart"
         android:label="fragment_chose_symptoms"
         tools:layout="@layout/fragment_chose_symptoms" >
         <action
@@ -37,7 +37,7 @@
             app:argType="string" />
         <action
             android:id="@+id/action_currentSymptoms_to_ChoosePartBodyScreen"
-            app:destination="@id/ChoosePartBodyScreen" />
+            app:destination="@id/chooseBodyPartFragment" />
     </fragment>
     <fragment
         android:id="@+id/chosenSymptomsScreen"

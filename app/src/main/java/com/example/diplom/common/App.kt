@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.room.Room
 import com.example.diplom.common.dagger.component.CurrentSymptomsComponent
 import com.example.diplom.common.dagger.component.DaggerCurrentSymptomsComponent
+import com.example.diplom.common.dagger.module.ChooseBodyPartModule
 import com.example.diplom.common.dagger.module.ChosenSymptomsScreenModule
 import com.example.diplom.common.dagger.module.CurrentSymptomsModule
 import com.example.diplom.database.AppDataBase
@@ -23,6 +24,7 @@ class App: Application() {
             .appDataBase(database)
             .currentSymptomsModule(CurrentSymptomsModule())
             .chosenSymptomsScreenModule(ChosenSymptomsScreenModule())
+            .chooseBodyPartModule(ChooseBodyPartModule())
             .build()
         initDB = InitDB()
         initDB.fillBD(applicationContext)

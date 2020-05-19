@@ -18,6 +18,8 @@ abstract class DaoSymptoms {
 
     @Query("SELECT DISTINCT bodyParts FROM Symptoms Where selectionMark = 1 ")
     abstract suspend fun getIdScreenChosenSymptoms(): List<String>
+    @Query("SELECT DISTINCT bodyParts FROM Symptoms")
+    abstract suspend fun getBodyParts(): List<String>
 
 
     @Update

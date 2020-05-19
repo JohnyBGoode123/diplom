@@ -14,7 +14,7 @@ import androidx.navigation.NavArgs
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.diplom.ChooseBodyPartDirections
+import com.example.diplom.chooseBodyParts.ChooseBodyPartDirections
 import com.example.diplom.R
 import com.example.diplom.common.App
 import com.example.diplom.common.models.SymptomsModel
