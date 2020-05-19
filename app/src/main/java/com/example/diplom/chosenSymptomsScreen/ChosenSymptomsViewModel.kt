@@ -71,12 +71,12 @@ class ChosenSymptomsViewModel(
     }
 
     fun initRoute() {
-        val tmpList: MutableList<Int> = mutableListOf()
+        val tmpList: MutableList<String> = mutableListOf()
       for (i in _listSymptoms?.filter { it.selectionMark }!!)
       {
-          tmpList.add(i.idScreen)
+          tmpList.add(i.bodyParts)
       }
-        ScreenRoute.initListRoute(tmpList.distinct() as MutableList<Int>)
+        ScreenRoute.initListRoute(tmpList.distinct() as MutableList<String>)
     }
     fun setIsEmptyList() {
         _isEmptyList = true

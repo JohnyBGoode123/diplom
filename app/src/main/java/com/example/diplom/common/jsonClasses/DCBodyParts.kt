@@ -5,5 +5,10 @@ data class DCBodyParts(
 )
 data class tmpBodyParts
     (
-    var name: String
+    var name: String,
+    var arraySymptoms: Array<tmpSymptoms>
+
+)
+data class tmpSymptoms(
+    var nameSymptom: String
 )

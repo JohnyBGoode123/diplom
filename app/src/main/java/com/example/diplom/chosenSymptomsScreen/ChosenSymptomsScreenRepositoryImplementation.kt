@@ -14,7 +14,7 @@ class ChosenSymptomsScreenRepositoryImplementation(
         daoSymptoms.updateOneDeletedSymptom(symptom as DaoSymptoms.Symptoms)
     }
 
-    override suspend fun getIdScreenChosenSymptoms(): List<Int> {
+    override suspend fun getIdScreenChosenSymptoms(): List<String> {
        return daoSymptoms.getIdScreenChosenSymptoms()
     }
 }

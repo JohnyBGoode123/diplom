@@ -7,7 +7,7 @@ import com.example.diplom.common.models.SymptomsModel
 @Dao
 abstract class DaoSymptoms {
 
-    @Query("SELECT * FROM Symptoms Where idBodyParts = :nameBodyPart ")
+    @Query("SELECT * FROM Symptoms Where bodyParts = :nameBodyPart ")
     abstract suspend fun getSymptomsByBodyPart(nameBodyPart: String): List<Symptoms>
 
     @Query("SELECT * FROM Symptoms")
@@ -16,9 +16,8 @@ abstract class DaoSymptoms {
     @Query("SELECT * FROM Symptoms Where selectionMark = 1 ")
     abstract suspend fun getAllChosenSymptoms(): List<Symptoms>
 
-
-    @Query("SELECT DISTINCT  idScreen FROM Symptoms Where selectionMark = 1 ")
-    abstract suspend fun getIdScreenChosenSymptoms(): List<Int>
+    @Query("SELECT DISTINCT bodyParts FROM Symptoms Where selectionMark = 1 ")
+    abstract suspend fun getIdScreenChosenSymptoms(): List<String>
 
 
     @Update
@@ -31,18 +30,11 @@ abstract class DaoSymptoms {
     abstract suspend fun insertSymptoms(symptoms: MutableCollection<Symptoms>)
 
     @Entity
-    class BodyParts(
-        @PrimaryKey
-        override val bodyPartsName: String
-    ) : BodyPartsModel
-
-    @Entity
     class Symptoms(
         @PrimaryKey
         override val nameSymptom: String,
-        override val idBodyParts: String,
-        override var selectionMark: Boolean,
-        override val idScreen: Int
+        override val bodyParts: String,
+        override var selectionMark: Boolean
     ) : SymptomsModel
 
 

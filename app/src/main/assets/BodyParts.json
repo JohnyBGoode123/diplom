@@ -1,22 +1,55 @@
 {
   "arrayParts": [
     {
-      "name": "Голова"
+      "name": "Голова",
+      "arraySymptoms": [
+        {
+          "nameSymptom": "Головная боль"
+        },
+        {
+          "nameSymptom": "Головокружение"
+        }
+      ]
     },
     {
-      "name": "Горло"
+      "name": "Горло",
+      "arraySymptoms": [
+        {
+          "nameSymptom": "Боль в горле"
+        }
+      ]
     },
     {
-      "name": "Грудь"
+      "name": "Грудь",
+      "arraySymptoms": [
+        {
+          "nameSymptom": "Кашель"
+        }
+      ]
     },
     {
-      "name": "Живот"
+      "name": "Живот",
+      "arraySymptoms": [
+        {
+          "nameSymptom": "Тошнота"
+        }
+      ]
     },
     {
-      "name": "Кожа"
+      "name": "Кожа",
+      "arraySymptoms": [
+        {
+          "nameSymptom": "Сыпь"
+        }
+      ]
     },
     {
-      "name": "Общее недомогание"
+      "name": "Общее недомогание",
+      "arraySymptoms": [
+        {
+          "nameSymptom": "Температура"
+        }
+      ]
     }
   ]
 }
