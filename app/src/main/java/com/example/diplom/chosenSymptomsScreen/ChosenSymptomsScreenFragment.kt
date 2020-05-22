@@ -30,9 +30,6 @@ private const val ARG_PARAM2 = "param2"
 class ChosenSymptomsScreenFragment : Fragment() {
 
     private val viewModel: ChosenSymptomsViewModel by viewModels {
-
-
-
         object : ViewModelProvider.Factory {
             override fun <T : ViewModel?> create(modelClass: Class<T>): T =
                 ChosenSymptomsViewModel(App.repositories.chosenSymptoms()) as T

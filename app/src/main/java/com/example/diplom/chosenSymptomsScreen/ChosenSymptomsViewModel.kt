@@ -74,7 +74,7 @@ class ChosenSymptomsViewModel(
         val tmpList: MutableList<String> = mutableListOf()
       for (i in _listSymptoms?.filter { it.selectionMark }!!)
       {
-          tmpList.add(i.bodyParts)
+          tmpList.add(i.nameSymptom)
       }
         ScreenRoute.initListRoute(tmpList.distinct() as MutableList<String>)
     }

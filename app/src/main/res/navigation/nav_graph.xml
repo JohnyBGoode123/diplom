@@ -50,11 +50,6 @@
         android:label="headache_fragment"
         tools:layout="@layout/headache_fragment" />
     <fragment
-        android:id="@+id/temperatureFragment"
-        android:name="com.example.diplom.TemperatureFragment"
-        android:label="temperature_fragment"
-        tools:layout="@layout/temperature_fragment" />
-    <fragment
         android:id="@+id/dizzinessFragment"
         android:name="com.example.diplom.DizzinessFragment"
         android:label="dizziness_fragment"
@@ -64,4 +59,17 @@
         android:name="com.example.diplom.DiagnosisFragment"
         android:label="diagnosis_fragment"
         tools:layout="@layout/diagnosis_fragment" />
+    <navigation android:id="@+id/tempertatureGraph"
+        app:startDestination="@id/approximateTemperatureFragment">
+        <fragment
+            android:id="@+id/approximateTemperatureFragment"
+            android:name="com.example.diplom.ApproximateTemperatureFragment"
+            android:label="approximate_temperature_fragment"
+            tools:layout="@layout/approximate_temperature_fragment" />
+        <fragment
+            android:id="@+id/temperatureFragment"
+            android:name="com.example.diplom.TemperatureFragment"
+            android:label="temperature_fragment"
+            tools:layout="@layout/temperature_fragment" />
+    </navigation>
 </navigation>

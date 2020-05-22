@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+<data>
+    <variable
+        name="nameBodyPart"
+        type="String" />
+    <variable
+        name="viewmodel"
+        type="com.example.diplom.chooseBodyParts.ChooseBodyPartViewModel" />
+</data>
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@{nameBodyPart}"
+
+
+        android:onClick="@{() -> viewmodel.buttonClick(nameBodyPart)}">
+
+    </Button>
+</layout>

@@ -6,10 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.example.diplom.chooseBodyParts.ChooseBodyPartDirections
-import com.example.diplom.R
-import kotlinx.android.synthetic.main.fragment_chose_symptoms.view.*
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.diplom.chosenSymptomsScreen.ChosenSymptomsScreenAdapter
+import com.example.diplom.common.App
+import com.example.diplom.common.models.SymptomsModel
+import com.example.diplom.databinding.FragmentChoseSymptomsBinding
+import kotlinx.android.synthetic.main.fragment_current_symptoms.*
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -21,69 +28,42 @@ private const val ARG_PARAM2 = "param2"
  * Use the [ChooseBodyPart.newInstance] factory method to
  * create an instance of this fragment.
  */
-class ChooseBodyPart : Fragment(), View.OnClickListener {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+class ChooseBodyPart : Fragment(), View.OnClickListener, ChooseBodyPartClickButtonInterface {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+    private val viewModel: ChooseBodyPartViewModel by viewModels {
+        object : ViewModelProvider.Factory {
+            override fun <T : ViewModel?> create(modelClass: Class<T>): T =
+                ChooseBodyPartViewModel(App.repositories.chosenBodyParts(), this@ChooseBodyPart) as T
         }
+
     }
+    private lateinit var dataBinding: FragmentChoseSymptomsBinding
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val v: View = inflater.inflate(R.layout.fragment_chose_symptoms, container, false)
-        // Inflate the layout for this fragment
-        v.button1.setOnClickListener { buttonBodyPartClick(it) }
-        v.button2.setOnClickListener { buttonBodyPartClick(it) }
-        v.button3.setOnClickListener { buttonBodyPartClick(it) }
-        v.button4.setOnClickListener { buttonBodyPartClick(it) }
-        v.button5.setOnClickListener { buttonBodyPartClick(it) }
-        v.ChosenSymptomsButton.setOnClickListener { buttonChosenSymptomsClick(it) }
-
-        return v
+        dataBinding = FragmentChoseSymptomsBinding.inflate(inflater, container, false)
+        dataBinding.nextListSymptoms.setOnClickListener {
+            buttonChosenSymptomsClick(it)
+        }
+        return dataBinding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-    }
+        dataBinding.lifecycleOwner = viewLifecycleOwner
+        my_recycler_view.layoutManager = LinearLayoutManager(requireContext())
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment BlankFragment2.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            ChooseBodyPart().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
 
-    private fun buttonBodyPartClick(view: View) {
-        val button = view as Button
-        val buttonText: String = button.text.toString()
-        val action =
-            ChooseBodyPartDirections.actionChoosePartBodyScreenToCurrentSymptoms(
-                buttonText
-            )
-        this.findNavController().navigate(action)
-    }
+        val symptomsObserver = Observer<List<String>> {
+            my_recycler_view.adapter = ChooseBodyPartAdapter(it, viewModel)
 
+        }
+        viewModel.listBodyParts.observe(viewLifecycleOwner, symptomsObserver)
+
+    }
     private fun buttonChosenSymptomsClick(view: View) {
         val action =
             ChooseBodyPartDirections.actionChoosePartBodyScreenToChosenSymptomsScreen()
@@ -93,6 +73,14 @@ class ChooseBodyPart : Fragment(), View.OnClickListener {
     override fun onClick(v: View?) {
 
 
+    }
+
+    override fun clickButton(text: String) {
+        val action =
+            ChooseBodyPartDirections.actionChoosePartBodyScreenToCurrentSymptoms(
+                text
+            )
+        this.findNavController().navigate(action)
     }
 
 

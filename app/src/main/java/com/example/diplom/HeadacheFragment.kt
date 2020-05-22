@@ -6,6 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.diplom.common.ScreenRoute
+import com.example.diplom.common.ScreenRoute.nextScreen
+import kotlinx.android.synthetic.main.headache_fragment.view.*
 
 class HeadacheFragment : Fragment() {
 
@@ -19,7 +22,11 @@ class HeadacheFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.headache_fragment, container, false)
+        val v: View = inflater.inflate(R.layout.headache_fragment, container, false)
+       v.next.setOnClickListener {
+           nextScreen()
+       }
+        return v
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

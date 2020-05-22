@@ -6,31 +6,25 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.diplom.common.ScreenRoute
-import kotlinx.android.synthetic.main.dizziness_fragment.view.*
 
-class DizzinessFragment : Fragment() {
+class ApproximateTemperatureFragment : Fragment() {
 
     companion object {
-        fun newInstance() = DizzinessFragment()
+        fun newInstance() = ApproximateTemperatureFragment()
     }
 
-    private lateinit var viewModel: DizzinessViewModel
+    private lateinit var viewModel: ApproximateTemperatureViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val v: View = inflater.inflate(R.layout.dizziness_fragment, container, false)
-        v.next.setOnClickListener {
-            ScreenRoute.nextScreen()
-        }
-        return v
+        return inflater.inflate(R.layout.approximate_temperature_fragment, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(DizzinessViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(ApproximateTemperatureViewModel::class.java)
         // TODO: Use the ViewModel
     }
 
