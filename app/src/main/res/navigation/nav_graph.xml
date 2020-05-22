@@ -60,7 +60,7 @@
         android:label="diagnosis_fragment"
         tools:layout="@layout/diagnosis_fragment" />
     <navigation android:id="@+id/tempertatureGraph"
-        app:startDestination="@id/approximateTemperatureFragment">
+        app:startDestination="@id/temperatureFragment">
         <fragment
             android:id="@+id/approximateTemperatureFragment"
             android:name="com.example.diplom.ApproximateTemperatureFragment"

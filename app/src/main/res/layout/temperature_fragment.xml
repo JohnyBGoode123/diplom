@@ -1,13 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".TemperatureFragment">
+    tools:context=".TemperatureFragment"
+   >
 
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Hello" />
+        android:orientation="vertical"
+        >
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Введите свою температуру"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            />
 
-</FrameLayout>
+        <EditText
+            android:id="@+id/edit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Ваша температура"
+            android:layout_below="@+id/title"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="200dp"
+            android:textSize="40sp"
+            android:textStyle="bold"
+            >
+
+        </EditText>
+
+        <Button
+            android:layout_centerHorizontal="true"
+            android:id="@+id/nextRouteScreen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Подтвердить"
+            android:layout_below="@+id/edit"
+            android:layout_marginTop="50dp">
+
+        </Button>
+        <Button
+            android:layout_centerHorizontal="true"
+            android:id="@+id/nextTemperatureScreenButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Я не знаю свою температуру"
+            android:layout_below="@+id/nextRouteScreen"
+            android:layout_marginTop="100dp">
+
+        </Button>
+    </RelativeLayout>
+
+
+
+</layout>
