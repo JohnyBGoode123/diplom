@@ -1,4 +1,4 @@
-package com.example.diplom
+package com.example.diplom.diseases.dizziness
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
@@ -6,13 +6,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.diplom.R
 import com.example.diplom.common.ScreenRoute
 import kotlinx.android.synthetic.main.dizziness_fragment.view.*
 
 class DizzinessFragment : Fragment() {
 
     companion object {
-        fun newInstance() = DizzinessFragment()
+        fun newInstance() =
+            DizzinessFragment()
     }
 
     private lateinit var viewModel: DizzinessViewModel

@@ -1,4 +1,4 @@
-package com.example.diplom
+package com.example.diplom.diagnosis
 
 import androidx.lifecycle.ViewModel
 

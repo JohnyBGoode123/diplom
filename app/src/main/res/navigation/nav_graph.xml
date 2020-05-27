@@ -46,29 +46,29 @@
         tools:layout="@layout/fragment_final_listsymptoms" />
     <fragment
         android:id="@+id/headacheFragment"
-        android:name="com.example.diplom.HeadacheFragment"
+        android:name="com.example.diplom.diseases.headache.HeadacheFragment"
         android:label="headache_fragment"
         tools:layout="@layout/headache_fragment" />
     <fragment
         android:id="@+id/dizzinessFragment"
-        android:name="com.example.diplom.DizzinessFragment"
+        android:name="com.example.diplom.diseases.dizziness.DizzinessFragment"
         android:label="dizziness_fragment"
         tools:layout="@layout/dizziness_fragment" />
     <fragment
         android:id="@+id/diagnosisFragment"
-        android:name="com.example.diplom.DiagnosisFragment"
+        android:name="com.example.diplom.diagnosis.DiagnosisFragment"
         android:label="diagnosis_fragment"
         tools:layout="@layout/diagnosis_fragment" />
     <navigation android:id="@+id/tempertatureGraph"
         app:startDestination="@id/temperatureFragment">
         <fragment
             android:id="@+id/approximateTemperatureFragment"
-            android:name="com.example.diplom.ApproximateTemperatureFragment"
+            android:name="com.example.diplom.diseases.temperature.ApproximateTemperatureFragment"
             android:label="approximate_temperature_fragment"
             tools:layout="@layout/approximate_temperature_fragment" />
         <fragment
             android:id="@+id/temperatureFragment"
-            android:name="com.example.diplom.TemperatureFragment"
+            android:name="com.example.diplom.diseases.temperature.TemperatureFragment"
             android:label="temperature_fragment"
             tools:layout="@layout/temperature_fragment" />
     </navigation>

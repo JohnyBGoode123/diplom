@@ -12,6 +12,22 @@
       ]
     },
     {
+      "name": "Глаза",
+      "arraySymptoms": [
+        {
+          "nameSymptom": "Боль в глазах"
+        }
+      ]
+    },
+    {
+      "name": "Нос",
+      "arraySymptoms": [
+        {
+          "nameSymptom": "Насморк"
+        }
+      ]
+    },
+    {
       "name": "Горло",
       "arraySymptoms": [
         {
@@ -32,6 +48,9 @@
       "arraySymptoms": [
         {
           "nameSymptom": "Тошнота"
+        },
+        {
+          "nameSymptom": "Рвота"
         }
       ]
     },
@@ -47,7 +66,16 @@
       "name": "Общее недомогание",
       "arraySymptoms": [
         {
-          "nameSymptom": "Температура"
+          "nameSymptom": "Жар"
+        },
+        {
+          "nameSymptom": "Боли в теле"
+        },
+        {
+          "nameSymptom": "Слабость"
+        },
+        {
+          "nameSymptom": "Озноб"
         }
       ]
     }
