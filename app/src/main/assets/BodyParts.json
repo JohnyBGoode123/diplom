@@ -63,6 +63,30 @@
       ]
     },
     {
+      "name": "Кожа1",
+      "arraySymptoms": [
+        {
+          "nameSymptom": "Сыпь1"
+        }
+      ]
+    },
+    {
+      "name": "Кожа2",
+      "arraySymptoms": [
+        {
+          "nameSymptom": "Сыпь2"
+        }
+      ]
+    },
+    {
+      "name": "Кожа3",
+      "arraySymptoms": [
+        {
+          "nameSymptom": "Сыпь3"
+        }
+      ]
+    },
+    {
       "name": "Общее недомогание",
       "arraySymptoms": [
         {
