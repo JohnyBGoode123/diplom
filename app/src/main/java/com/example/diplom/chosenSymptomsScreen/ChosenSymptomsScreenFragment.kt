@@ -49,8 +49,12 @@ class ChosenSymptomsScreenFragment : Fragment() {
             {
                 viewModel.setIsEmptyList()
             }
-            viewModel.initRoute()
-            ScreenRoute.nextScreen()
+            else
+            {
+                viewModel.initRoute()
+                ScreenRoute.nextScreen()
+            }
+
 
         }
         return dataBinding.root
