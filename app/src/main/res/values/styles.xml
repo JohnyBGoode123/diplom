@@ -21,4 +21,9 @@
         <item name="android:layout_gravity">center</item>
     </style>
 
+
+    <style name="SymptomsTextStyle">
+        <item name="android:textSize">30sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 </resources>

@@ -22,4 +22,8 @@
     <string name="emptyListSymptoms">Выберите хотя бы один симптом</string>
 
 
+    <string name="coughTitle">Какой у вас кашель?</string>
+    <string name="wetCough">Влажный</string>
+    <string name="dryCough">Сухой</string>
+
 </resources>
