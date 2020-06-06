@@ -21,6 +21,9 @@ abstract class DaoSymptoms {
     @Query("SELECT DISTINCT bodyParts FROM Symptoms")
     abstract suspend fun getBodyParts(): List<String>
 
+    @Query("SELECT DISTINCT nameSymptom FROM Symptoms")
+    abstract suspend fun getNameSymptoms(): List<String>
+
 
     @Update
     abstract suspend fun updateSymptoms(symptoms: List<Symptoms>?)

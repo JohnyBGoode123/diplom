@@ -3,6 +3,7 @@ package com.example.diplom.chooseBodyParts
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.diplom.common.ListsSymptoms
 import kotlinx.coroutines.launch
 
 
@@ -28,9 +29,21 @@ class ChooseBodyPartViewModel(
             listBodyParts?.let { _listBodyParts = it }
         }
     }
+    init {
+        viewModelScope.launch {
+            val listAllNameSymptoms: List<String>? = try {
+                repository.getAllNameSymptoms()
+            } catch (t: Throwable) {
+                print(t.message)
+                null
+            }
+            listAllNameSymptoms?.let { ListsSymptoms.listAllSymptoms = it }
+        }
+    }
     fun buttonClick(text: String)
     {
         navigator.clickButton(text)
     }
+
 
 }
