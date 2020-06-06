@@ -1,8 +1,7 @@
 package com.example.diplom.database
 
 import androidx.room.*
-import com.example.diplom.common.models.BodyPartsModel
-import com.example.diplom.common.models.SymptomsModel
+import com.example.diplom.common.models.*
 
 @Dao
 abstract class DaoSymptoms {
@@ -18,6 +17,7 @@ abstract class DaoSymptoms {
 
     @Query("SELECT  nameSymptom FROM Symptoms Where selectionMark = 1 ")
     abstract suspend fun getIdScreenChosenSymptoms(): List<String>
+
     @Query("SELECT DISTINCT bodyParts FROM Symptoms")
     abstract suspend fun getBodyParts(): List<String>
 
@@ -37,10 +37,41 @@ abstract class DaoSymptoms {
     @Entity
     class Symptoms(
         @PrimaryKey
+        override val idSymptom: Int,
         override val nameSymptom: String,
         override val bodyParts: String,
         override var selectionMark: Boolean
     ) : SymptomsModel
+
+    @Entity
+    class ValueSymptoms(
+        @PrimaryKey
+        override val id: Int,
+        override val nameValue: String,
+        override val idSymptoms: Int
+    ) : ValueSymptomsModel
+    @Entity
+    class Disease(
+        @PrimaryKey
+        override val id: Int,
+        override val nameDisease: String,
+        override val linkDiagnosis: Int
+    ) : DiseaseModel
+    @Entity
+    class GroupValueSymptomsByDisease(
+        @PrimaryKey
+        override val id: Int,
+        override val idSymptoms: Int,
+        override val idDisease: Int
+    ) : GroupValueSymptomsByDiseaseModel
+    @Entity
+    class DirectoryValueSymptoms(
+        @PrimaryKey
+        override val id: Int,
+        override val idGroupValue: Int,
+        override val Relevance: String
+    ) : DirectoryValueSymptomsModel
+
 
 
 }
