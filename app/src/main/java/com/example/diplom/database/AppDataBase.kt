@@ -9,9 +9,10 @@ import androidx.room.RoomDatabase
         DaoSymptoms.ValueSymptoms::class,
         DaoSymptoms.Disease::class,
         DaoSymptoms.GroupValueSymptomsByDisease::class,
-        DaoSymptoms.DirectoryValueSymptoms::class
+        DaoSymptoms.DirectoryValueSymptoms::class,
+        DaoSymptoms.Relevance::class
 ],
-version = 14
+version = 15
 )
 
 abstract class AppDataBase: RoomDatabase(){

@@ -1,44 +1,45 @@
 {
   "arraySymptoms": [
     {
-      "name": "Головная боль",
-      "idBodyParts": "Голова",
-      "idScreen": 1
+      "id": 1,
+      "nameSymptoms": "Кашель",
+      "nameBodyPart": "Рот",
+      "arrayValueSymptoms": [
+        {
+          "id": 1,
+          "nameValueSymptom": "Сухой"
+        },
+        {
+          "id": 2,
+          "nameValueSymptom": "Мокрый"
+        }
+      ]
     },
     {
-      "name": "Насморк",
-      "idBodyParts": "Голова",
-      "idScreen": 2
+      "id": 2,
+      "nameSymptoms": "Насморк",
+      "nameBodyPart": "Голова",
+      "arrayValueSymptoms": [
+        {
+          "id": 3,
+          "nameValueSymptom": "Есть"
+        }
+      ]
     },
     {
-      "name": "Головокружение",
-      "idBodyParts": "Голова",
-      "idScreen": 1
-    },
-    {
-      "name": "Боль в горле",
-      "idBodyParts": "Горло",
-      "idScreen": 3
-    },
-    {
-      "name": "Кашель",
-      "idBodyParts": "Горло",
-      "idScreen": 4
-    },
-    {
-      "name": "Тошнота",
-      "idBodyParts": "Живот",
-      "idScreen": 5
-    },
-    {
-      "name": "Сыпь",
-      "idBodyParts": "Кожа",
-      "idScreen": 6
-    },
-    {
-      "name": "Температура",
-      "idBodyParts": "Общее недомоганание",
-      "idScreen": 7
+      "id": 3,
+      "nameSymptoms": "Головная боль",
+      "nameBodyPart": "Голова",
+      "arrayValueSymptoms": [
+        {
+          "id": 4,
+          "nameValueSymptom": "Сильная"
+        },
+        {
+          "id": 5,
+          "nameValueSymptom": "Слабая"
+        }
+      ]
     }
   ]
 }

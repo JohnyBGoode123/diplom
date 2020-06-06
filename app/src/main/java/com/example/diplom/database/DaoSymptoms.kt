@@ -12,6 +12,9 @@ abstract class DaoSymptoms {
     @Query("SELECT * FROM Symptoms")
     abstract suspend fun getAllSymptoms(): List<Symptoms>
 
+    @Query("SELECT * FROM ValueSymptoms")
+    abstract suspend fun getAllValueSymptoms(): List<ValueSymptoms>
+
     @Query("SELECT * FROM Symptoms Where selectionMark = 1 ")
     abstract suspend fun getAllChosenSymptoms(): List<Symptoms>
 
@@ -34,10 +37,13 @@ abstract class DaoSymptoms {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     abstract suspend fun insertSymptoms(symptoms: MutableCollection<Symptoms>)
 
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    abstract suspend fun insertValueSymptoms(symptoms: MutableCollection<ValueSymptoms>)
+
     @Entity
     class Symptoms(
         @PrimaryKey
-        override val idSymptom: Int,
+        override val id: Int,
         override val nameSymptom: String,
         override val bodyParts: String,
         override var selectionMark: Boolean
@@ -68,9 +74,15 @@ abstract class DaoSymptoms {
     class DirectoryValueSymptoms(
         @PrimaryKey
         override val id: Int,
-        override val idGroupValue: Int,
-        override val Relevance: String
+        override val idSymptom: Int,
+        override val idRelevance: Int
     ) : DirectoryValueSymptomsModel
+    @Entity
+    class Relevance(
+        @PrimaryKey
+        override val id: Int,
+        override val nameRelevance: String
+    ) : RelevanceModel
 
 
 

@@ -20,12 +20,16 @@ init {
     fun fillBD(ctx:Context)
     {
         val jsonTransfer = JsonTransfer(ctx)
-        var  tmp: List<DaoSymptoms.Symptoms>?
+        var  tmpS: List<DaoSymptoms.Symptoms>?
+        var  tmpV: List<DaoSymptoms.ValueSymptoms>?
         viewModelScope.launch {
             try {
 
                 initDB?.insertSymptoms(jsonTransfer.listSymptoms )
-                tmp = initDB?.getAllSymptoms()
+                tmpS = initDB?.getAllSymptoms()
+
+                initDB?.insertValueSymptoms(jsonTransfer.listValueSymptoms )
+                tmpV = initDB?.getAllValueSymptoms()
 
 
             } catch (t: Throwable) {

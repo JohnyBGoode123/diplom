@@ -1,0 +1,29 @@
+{
+  "arrayDisease": [
+    {
+      "id": 1,
+      "nameDisease": "Грипп",
+      "arrayDiseaseSymptoms": [
+        {
+          "idGroup": 1,
+          "idSymptom": 1,
+          "arrayValueSymptom": [
+            {
+              "idValue": 1,
+              "Relevance": 1
+            }
+          ]
+        },
+        { "idGroup": 2,
+          "idSymptom": 2,
+          "arrayValueSymptom": [
+            {
+              "idValue": 3,
+              "Relevance": 3
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
