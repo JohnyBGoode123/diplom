@@ -14,11 +14,13 @@ class JsonTransfer(_ctx: Context) {
         mutableListOf()
     var listDisease: MutableCollection<DaoSymptoms.Disease> =
         mutableListOf()
-    var listGroupValueSymptomsByDisease: MutableCollection<DaoSymptoms.GroupValueSymptomsByDisease> =
+    var listVariantSymptomsCrossRef: MutableCollection<DaoSymptoms.VariantSymptomsCrossRef> =
         mutableListOf()
-    var listDirectoryValueSymptoms: MutableCollection<DaoSymptoms.DirectoryValueSymptoms> =
+    var listValueSymptomsCertainDisease: MutableCollection<DaoSymptoms.ValueSymptomsCertainDisease> =
         mutableListOf()
     var listRelevance: MutableCollection<DaoSymptoms.Relevance> =
+        mutableListOf()
+    var listVariant: MutableCollection<DaoSymptoms.VariantSymptoms> =
         mutableListOf()
     private var context: Context? = _ctx
     private fun getJsonString(fileString: String): String =
@@ -30,9 +32,10 @@ class JsonTransfer(_ctx: Context) {
         setListSymptoms()
         setListValueSymptoms()
         setListDisease()
-        setGroupValueSymptomsByDisease()
+        setDiseaseSymptomsCrossRef()
         setDirectoryValueSymptoms()
         setListRelevance()
+        setListVariant()
     }
 
     private fun setListSymptoms() {
@@ -54,14 +57,17 @@ class JsonTransfer(_ctx: Context) {
         val obj: DCSymptoms =
             Gson().fromJson(getJsonString("Symptoms.json"), DCSymptoms::class.java)
         for (i in obj.arraySymptoms) {
-            for (j in i.arrayValueSymptoms) {
-                listValueSymptoms.add(
-                    DaoSymptoms.ValueSymptoms(
-                        j.id,
-                        j.nameValueSymptom,
-                        i.id
+            // а если здесь симптом будет пустой, что тогда? Может быть let сделать
+            i.arrayValueSymptoms?.let {
+                for (j in it) {
+                    listValueSymptoms.add(
+                        DaoSymptoms.ValueSymptoms(
+                            j.id,
+                            j.nameValueSymptom,
+                            i.id
+                        )
                     )
-                )
+                }
             }
         }
     }
@@ -80,18 +86,18 @@ class JsonTransfer(_ctx: Context) {
         }
     }
 
-    private fun setGroupValueSymptomsByDisease() {
+    private fun setDiseaseSymptomsCrossRef() {
         val obj: DCDiseases =
             Gson().fromJson(getJsonString("Disease.json"), DCDiseases::class.java)
         for (i in obj.arrayDisease) {
             for (j in i.arrayDiseaseSymptoms) {
-                listGroupValueSymptomsByDisease.add(
-                    DaoSymptoms.GroupValueSymptomsByDisease(
-                        j.idGroup,
-                        j.idSymptom,
-                        i.id
+                listVariantSymptomsCrossRef.add(
+                    DaoSymptoms.VariantSymptomsCrossRef(
+                        i.id,
+                        j.idSymptom
                     )
                 )
+
             }
 
         }
@@ -103,8 +109,8 @@ class JsonTransfer(_ctx: Context) {
         for (i in obj.arrayDisease) {
             for (j in i.arrayDiseaseSymptoms) {
                 for (k in j.arrayValueSymptom) {
-                    listDirectoryValueSymptoms.add(
-                        DaoSymptoms.DirectoryValueSymptoms(
+                    listValueSymptomsCertainDisease.add(
+                        DaoSymptoms.ValueSymptomsCertainDisease(
                             k.idValue,
                             j.idSymptom,
                             k.relevance
@@ -123,10 +129,25 @@ class JsonTransfer(_ctx: Context) {
         for (i in obj.arrayRelevance) {
             listRelevance.add(
                 DaoSymptoms.Relevance(
-                  i.id,
+                    i.id,
                     i.name
                 )
             )
+        }
+    }
+
+    private fun setListVariant() {
+        val obj: DCDiseases =
+            Gson().fromJson(getJsonString("Disease.json"), DCDiseases::class.java)
+        for (i in obj.arrayDisease) {
+            for (j in i.arrayDiseaseSymptoms) {
+                listVariant.add(
+                    DaoSymptoms.VariantSymptoms(
+                        j.idVariant,
+                        j.idSymptom
+                    )
+                )
+            }
         }
     }
 

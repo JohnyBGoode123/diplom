@@ -7,6 +7,7 @@ import com.example.diplom.common.dagger.component.DaggerCurrentSymptomsComponent
 import com.example.diplom.common.dagger.module.ChooseBodyPartModule
 import com.example.diplom.common.dagger.module.ChosenSymptomsScreenModule
 import com.example.diplom.common.dagger.module.CurrentSymptomsModule
+import com.example.diplom.common.dagger.module.DiagnosisModule
 import com.example.diplom.database.AppDataBase
 import com.example.diplom.database.InitDB
 
@@ -25,17 +26,18 @@ class App: Application() {
             .currentSymptomsModule(CurrentSymptomsModule())
             .chosenSymptomsScreenModule(ChosenSymptomsScreenModule())
             .chooseBodyPartModule(ChooseBodyPartModule())
+            .diagnosisModule(DiagnosisModule())
             .build()
         initDB = InitDB()
         initDB.fillBD(applicationContext)
 
     }
 
-    companion object {
+      companion object {
         lateinit var repositories: CurrentSymptomsComponent
             private set
         var instance: App? = null
     }
-     fun getDatabase(): AppDataBase? =  database
+    fun getDatabase(): AppDataBase? =  database
 
 }

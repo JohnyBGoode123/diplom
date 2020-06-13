@@ -17,16 +17,6 @@ import com.example.diplom.common.models.SymptomsModel
 import com.example.diplom.databinding.FragmentFinalListsymptomsBinding
 import kotlinx.android.synthetic.main.fragment_current_symptoms.*
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [ChosenSymptomsScreenFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ChosenSymptomsScreenFragment : Fragment() {
 
     private val viewModel: ChosenSymptomsViewModel by viewModels {
@@ -73,8 +63,6 @@ class ChosenSymptomsScreenFragment : Fragment() {
         }
         viewModel.listSymptoms.observe(viewLifecycleOwner, symptomsObserver)
 
-        val qwe = mapOf(1 to R.id.chooseBodyPartFragment, 2 to R.id.StartScreen)
-        val e = qwe.getOrElse(1) {"qweqwe"}
     }
 
 

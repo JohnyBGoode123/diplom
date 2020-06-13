@@ -5,8 +5,8 @@
       "nameDisease": "Грипп",
       "arrayDiseaseSymptoms": [
         {
-          "idGroup": 1,
           "idSymptom": 1,
+          "idVariant": 1,
           "arrayValueSymptom": [
             {
               "idValue": 1,
@@ -14,12 +14,40 @@
             }
           ]
         },
-        { "idGroup": 2,
+        {
           "idSymptom": 2,
+          "idVariant": 2,
           "arrayValueSymptom": [
             {
               "idValue": 3,
-              "Relevance": 3
+              "relevance": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "nameDisease": "Тест",
+      "arrayDiseaseSymptoms": [
+        {
+
+          "idSymptom": 1,
+          "idVariant": 1,
+          "arrayValueSymptom": [
+            {
+              "idValue": 1,
+              "relevance": 1
+            }
+          ]
+        },
+        {
+          "idSymptom": 3,
+          "idVariant": 3,
+          "arrayValueSymptom": [
+            {
+              "idValue": 4,
+              "relevance": 3
             }
           ]
         }

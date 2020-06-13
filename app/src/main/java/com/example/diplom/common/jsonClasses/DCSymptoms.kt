@@ -8,7 +8,7 @@ data class ArraySymptoms (
     val id : Int,
     val nameSymptoms : String,
     val nameBodyPart : String,
-    val arrayValueSymptoms : List<ArrayValueSymptoms>
+    val arrayValueSymptoms : List<ArrayValueSymptoms>?
 )
 data class ArrayValueSymptoms (
 

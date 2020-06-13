@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.diplom.common.App
 import com.example.diplom.common.JsonTransfer
+import com.example.diplom.database.relationDC.DiseaseWithVariantSymptoms
 import kotlinx.coroutines.launch
 
 class InitDB: ViewModel() {
@@ -22,6 +23,9 @@ init {
         val jsonTransfer = JsonTransfer(ctx)
         var  tmpS: List<DaoSymptoms.Symptoms>?
         var  tmpV: List<DaoSymptoms.ValueSymptoms>?
+        var tmpDandV: List<DiseaseWithVariantSymptoms>
+
+        var tmpCrossRef: List<DaoSymptoms.VariantSymptomsCrossRef>
         viewModelScope.launch {
             try {
 
@@ -30,6 +34,16 @@ init {
 
                 initDB?.insertValueSymptoms(jsonTransfer.listValueSymptoms )
                 tmpV = initDB?.getAllValueSymptoms()
+
+                initDB?.insertDisease(jsonTransfer.listDisease)
+                initDB?.insertVariantSymptomsCrossRef(jsonTransfer.listVariantSymptomsCrossRef)
+                initDB?.insertVariantSymptoms(jsonTransfer.listVariant)
+                initDB?.insertRelevance(jsonTransfer.listRelevance)
+                initDB?.insertValueSymptomsCertainDisease(jsonTransfer.listValueSymptomsCertainDisease)
+
+
+                tmpDandV = initDB?.getDiseaseWithVariant()!!
+
 
 
             } catch (t: Throwable) {

@@ -31,14 +31,14 @@ val args: CurrentSymptomsFragmentArgs by navArgs()
         }
 
     }
-    private lateinit var dataBinding: FragmentCurrentSymptomsBinding
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
     }
 
-
+    private lateinit var dataBinding: FragmentCurrentSymptomsBinding
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -54,30 +54,17 @@ val args: CurrentSymptomsFragmentArgs by navArgs()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        dataBinding.lifecycleOwner = viewLifecycleOwner
-        qwe()
-
-        /*LayoutManager отвечает за позиционирование view-компонентов в RecyclerView, а также за определение того, когда следует переиспользовать view-компоненты,
-        которые больше не видны пользователю.*/
-        // requireContext возвращает контекст, который не может быть null. Для этого эту функцию нужно вызывать когда
-        // фрагмент уже создан и привязан к root (onResume, onViewCreated, etc )
-        my_recycler_view.layoutManager = LinearLayoutManager(requireContext()) // Мне нужен список, поэтому вызываю LinearLayoutManager
-
+        dataBinding.lifecycleOwner = viewLifecycleOwner // инициализируем жизненный цикл dataBinding жизненным циклом фрагмента
+        my_recycler_view.layoutManager = LinearLayoutManager(requireContext())
         val symptomsObserver = Observer<List<SymptomsModel>> {
-            my_recycler_view.adapter = CurrentSymptomsAdapter(it, viewModel) // суть в присоединении адаптера, но
-
+            my_recycler_view.adapter = CurrentSymptomsAdapter(it, viewModel)
         }
         my_recycler_view.adapter?.notifyDataSetChanged()
         viewModel.listSymptoms.observe(viewLifecycleOwner, symptomsObserver)
-
     }
     private fun buttonCurrentSymptomsClick() {
         val action =
             CurrentSymptomsFragmentDirections.actionCurrentSymptomsToChoosePartBodyScreen()
         this.findNavController().navigate(action)
-    }
-    fun qwe()
-    {
-        val e = 4
     }
 }

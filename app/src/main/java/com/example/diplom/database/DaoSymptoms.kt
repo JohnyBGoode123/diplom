@@ -2,11 +2,12 @@ package com.example.diplom.database
 
 import androidx.room.*
 import com.example.diplom.common.models.*
+import com.example.diplom.database.relationDC.DiseaseWithVariantSymptoms
 
 @Dao
 abstract class DaoSymptoms {
 
-    @Query("SELECT * FROM Symptoms Where bodyParts = :nameBodyPart ")
+    @Query("SELECT distinct * FROM Symptoms Where bodyParts = :nameBodyPart ")
     abstract suspend fun getSymptomsByBodyPart(nameBodyPart: String): List<Symptoms>
 
     @Query("SELECT * FROM Symptoms")
@@ -18,14 +19,21 @@ abstract class DaoSymptoms {
     @Query("SELECT * FROM Symptoms Where selectionMark = 1 ")
     abstract suspend fun getAllChosenSymptoms(): List<Symptoms>
 
+
     @Query("SELECT  nameSymptom FROM Symptoms Where selectionMark = 1 ")
-    abstract suspend fun getIdScreenChosenSymptoms(): List<String>
+    abstract suspend fun getNameChosenSymptoms(): List<String>
 
     @Query("SELECT DISTINCT bodyParts FROM Symptoms")
     abstract suspend fun getBodyParts(): List<String>
 
     @Query("SELECT DISTINCT nameSymptom FROM Symptoms")
     abstract suspend fun getNameSymptoms(): List<String>
+
+
+
+    @Transaction
+    @Query("SELECT * FROM Disease")
+    abstract suspend fun getDiseaseWithVariant(): List<DiseaseWithVariantSymptoms>
 
 
     @Update
@@ -39,6 +47,23 @@ abstract class DaoSymptoms {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     abstract suspend fun insertValueSymptoms(symptoms: MutableCollection<ValueSymptoms>)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    abstract suspend fun insertDisease(symptoms: MutableCollection<Disease>)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    abstract suspend fun insertVariantSymptomsCrossRef(symptoms: MutableCollection<VariantSymptomsCrossRef>)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    abstract suspend fun insertValueSymptomsCertainDisease(symptoms: MutableCollection<ValueSymptomsCertainDisease>)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    abstract suspend fun insertVariantSymptoms(symptoms: MutableCollection<VariantSymptoms>)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    abstract suspend fun insertRelevance(symptoms: MutableCollection<Relevance>)
+
+
 
     @Entity
     class Symptoms(
@@ -59,24 +84,29 @@ abstract class DaoSymptoms {
     @Entity
     class Disease(
         @PrimaryKey
-        override val id: Int,
+        override val idDisease: Int,
         override val nameDisease: String,
         override val linkDiagnosis: Int
     ) : DiseaseModel
-    @Entity
-    class GroupValueSymptomsByDisease(
-        @PrimaryKey
-        override val id: Int,
-        override val idSymptoms: Int,
+    @Entity(primaryKeys = ["idDisease", "idVariant"])
+    class VariantSymptomsCrossRef(
+        override val idVariant: Int,
         override val idDisease: Int
-    ) : GroupValueSymptomsByDiseaseModel
+    ) : DiseaseModelSymptoms
     @Entity
-    class DirectoryValueSymptoms(
+    class ValueSymptomsCertainDisease(
         @PrimaryKey
         override val id: Int,
-        override val idSymptom: Int,
+        override val idVariant: Int,
         override val idRelevance: Int
     ) : DirectoryValueSymptomsModel
+    @Entity
+    class VariantSymptoms(
+        @PrimaryKey
+        override val idVariant: Int,
+        override val idSymptom: Int
+    ) : VariantSymptomsModel
+
     @Entity
     class Relevance(
         @PrimaryKey

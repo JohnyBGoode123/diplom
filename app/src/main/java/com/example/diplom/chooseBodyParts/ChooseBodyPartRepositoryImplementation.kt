@@ -7,6 +7,4 @@ class ChooseBodyPartRepositoryImplementation(
 ) : ChooseBodyPartRepository {
     override suspend fun getBodyParts(): List<String> = daoSymptoms.getBodyParts()
     override suspend fun getAllNameSymptoms(): List<String> = daoSymptoms.getNameSymptoms()
-
-
 }

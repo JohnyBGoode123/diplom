@@ -15,6 +15,6 @@ class ChosenSymptomsScreenRepositoryImplementation(
     }
 
     override suspend fun getIdScreenChosenSymptoms(): List<String> {
-       return daoSymptoms.getIdScreenChosenSymptoms()
+       return daoSymptoms.getNameChosenSymptoms()
     }
 }
