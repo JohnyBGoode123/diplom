@@ -4,20 +4,20 @@ import com.example.diplom.navController
 
 // надо найти решение из котлина
 object ScreenRoute {
-    lateinit var listRoute: MutableList<String>
-    lateinit var listRouteIterator: Iterator<String>
+    lateinit var listRoute: MutableList<Int>
+    lateinit var listRouteIterator: Iterator<Int>
     @JvmStatic
-    fun getNextScreen(): String {
+    fun getNextScreen(): Int {
         return if (listRouteIterator.hasNext()) {
             listRouteIterator.next()
         } else {
-            "0"
-        }
+            0
 
+
+            }
     }
-
     @JvmStatic
-    fun initListRoute(tmpList: MutableList<String>) {
+    fun initListRoute(tmpList: MutableList<Int>) {
         listRoute = tmpList
         listRouteIterator = listRoute.iterator()
     }

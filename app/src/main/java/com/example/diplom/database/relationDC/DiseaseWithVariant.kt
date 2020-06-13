@@ -13,6 +13,6 @@ data class DiseaseWithVariantSymptoms(
         entityColumn = "idVariant",
         associateBy = Junction(DaoSymptoms.VariantSymptomsCrossRef::class)
     )
-    val variant: List<VariantWithValues>
+    val variant: List<DaoSymptoms.VariantSymptoms>
 
 )

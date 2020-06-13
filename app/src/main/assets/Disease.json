@@ -7,49 +7,8 @@
         {
           "idSymptom": 1,
           "idVariant": 1,
-          "arrayValueSymptom": [
-            {
-              "idValue": 1,
-              "Relevance": 1
-            }
-          ]
-        },
-        {
-          "idSymptom": 2,
-          "idVariant": 2,
-          "arrayValueSymptom": [
-            {
-              "idValue": 3,
-              "relevance": 3
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "nameDisease": "Тест",
-      "arrayDiseaseSymptoms": [
-        {
-
-          "idSymptom": 1,
-          "idVariant": 1,
-          "arrayValueSymptom": [
-            {
-              "idValue": 1,
-              "relevance": 1
-            }
-          ]
-        },
-        {
-          "idSymptom": 3,
-          "idVariant": 3,
-          "arrayValueSymptom": [
-            {
-              "idValue": 4,
-              "relevance": 3
-            }
-          ]
+          "idValue": null,
+          "idRelevance": 1
         }
       ]
     }

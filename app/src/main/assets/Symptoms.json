@@ -17,95 +17,9 @@
     },
     {
       "id": 2,
-      "nameSymptoms": "Насморк",
-      "nameBodyPart": "Голова",
-      "arrayValueSymptoms": [
-        {
-          "id": 3,
-          "nameValueSymptom": "Есть"
-        }
-      ]
-    },
-    {
-      "id": 3,
       "nameSymptoms": "Головная боль",
       "nameBodyPart": "Голова",
-      "arrayValueSymptoms": [
-        {
-          "id": 4,
-          "nameValueSymptom": "Сильная"
-        },
-        {
-          "id": 5,
-          "nameValueSymptom": "Слабая"
-        }
-      ]
-    },
-    {
-      "id": 4,
-      "nameSymptoms": "Слабость",
-      "nameBodyPart": "Общее недомогание",
-      "arrayValueSymptoms": [
-        {
-          "id": 3,
-          "nameValueSymptom": "Есть"
-        }
-      ]
-    },
-    {
-      "id": 5,
-      "nameSymptoms": "Боли в мышцах",
-      "nameBodyPart": "Общее недомогание",
-      "arrayValueSymptoms": [
-        {
-          "id": 3,
-          "nameValueSymptom": "Есть"
-        }
-      ]
-    },
-    {
-      "id": 6,
-      "nameSymptoms": "Боль в горле",
-      "nameBodyPart": "Горло",
-      "arrayValueSymptoms": [
-        {
-          "id": 3,
-          "nameValueSymptom": "Есть"
-        }
-      ]
-    },
-    {
-      "id": 7,
-      "nameSymptoms": "Сыпь",
-      "nameBodyPart": "Кожа",
-      "arrayValueSymptoms": [
-        {
-          "id": 3,
-          "nameValueSymptom": "Есть"
-        }
-      ]
-    },
-    {
-      "id": 8,
-      "nameSymptoms": "Отдышка",
-      "nameBodyPart": "Общее недомогание",
-      "arrayValueSymptoms": [
-        {
-          "id": 3,
-          "nameValueSymptom": "Есть"
-        }
-      ]
-    },
-    {
-      "id": 9,
-      "nameSymptoms": "Насморк",
-      "nameBodyPart": "Голова",
-      "arrayValueSymptoms": [
-        {
-          "id": 3,
-          "nameValueSymptom": "Есть"
-        }
-      ]
+      "arrayValueSymptoms": null
     }
   ]
 }

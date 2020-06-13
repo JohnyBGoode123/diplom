@@ -39,8 +39,6 @@ init {
                 initDB?.insertVariantSymptomsCrossRef(jsonTransfer.listVariantSymptomsCrossRef)
                 initDB?.insertVariantSymptoms(jsonTransfer.listVariant)
                 initDB?.insertRelevance(jsonTransfer.listRelevance)
-                initDB?.insertValueSymptomsCertainDisease(jsonTransfer.listValueSymptomsCertainDisease)
-
 
                 tmpDandV = initDB?.getDiseaseWithVariant()!!
 

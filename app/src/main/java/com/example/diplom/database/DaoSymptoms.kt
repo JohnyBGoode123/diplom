@@ -54,8 +54,6 @@ abstract class DaoSymptoms {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     abstract suspend fun insertVariantSymptomsCrossRef(symptoms: MutableCollection<VariantSymptomsCrossRef>)
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    abstract suspend fun insertValueSymptomsCertainDisease(symptoms: MutableCollection<ValueSymptomsCertainDisease>)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     abstract suspend fun insertVariantSymptoms(symptoms: MutableCollection<VariantSymptoms>)
@@ -94,17 +92,12 @@ abstract class DaoSymptoms {
         override val idDisease: Int
     ) : DiseaseModelSymptoms
     @Entity
-    class ValueSymptomsCertainDisease(
-        @PrimaryKey
-        override val id: Int,
-        override val idVariant: Int,
-        override val idRelevance: Int
-    ) : DirectoryValueSymptomsModel
-    @Entity
     class VariantSymptoms(
         @PrimaryKey
         override val idVariant: Int,
-        override val idSymptom: Int
+        override val idSymptom: Int,
+        override val idValue: Int?,
+        override val idRelevance: Int
     ) : VariantSymptomsModel
 
     @Entity

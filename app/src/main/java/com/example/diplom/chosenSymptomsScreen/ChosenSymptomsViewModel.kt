@@ -4,8 +4,11 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.diplom.common.Constants
 import com.example.diplom.common.ScreenRoute
+import com.example.diplom.common.UserSymptoms
 import com.example.diplom.common.models.SymptomsModel
+import com.example.diplom.common.models.UserSymptom
 import kotlinx.coroutines.launch
 
 class ChosenSymptomsViewModel(
@@ -71,20 +74,29 @@ class ChosenSymptomsViewModel(
     }
 
     fun initRoute() {
-        val tmpList: MutableList<String> = mutableListOf()
+        var tmpList: MutableList<Int> = mutableListOf()
       for (i in _listSymptoms?.filter { it.selectionMark }!!)
       {
-          tmpList.add(i.nameSymptom)
+          tmpList.add(i.id)
       }
-        ScreenRoute.initListRoute(tmpList.distinct() as MutableList<String>)
+        tmpList = removeGeneralSymptom(tmpList)
+        ScreenRoute.initListRoute(tmpList.distinct() as MutableList<Int>)
     }
     fun setIsEmptyList() {
         _isEmptyList = true
     }
-
-
 }
 
+private fun removeGeneralSymptom(tmpList: MutableList<Int>): MutableList<Int>
+{
+    for (i in tmpList)
+    if (!Constants.mapScreens.containsKey(i))
+    {
+        tmpList.remove(i)
+        UserSymptoms.addUserSymptom(i)
+    }
+    return tmpList
+}
 /* viewModelScope.launch {
             var tmpList: List<Int> = try {
                 repository.getIdScreenChosenSymptoms()
