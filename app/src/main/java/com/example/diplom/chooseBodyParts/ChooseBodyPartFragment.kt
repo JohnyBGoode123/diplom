@@ -16,6 +16,7 @@ import com.example.diplom.chosenSymptomsScreen.ChosenSymptomsScreenAdapter
 import com.example.diplom.common.App
 import com.example.diplom.common.models.SymptomsModel
 import com.example.diplom.databinding.FragmentChoseSymptomsBinding
+import com.example.diplom.diseases.cough.CoughFragment
 import kotlinx.android.synthetic.main.fragment_current_symptoms.*
 
 // TODO: Rename parameter arguments, choose names that match
@@ -69,6 +70,8 @@ class ChooseBodyPart : Fragment(), View.OnClickListener, ChooseBodyPartClickButt
             ChooseBodyPartDirections.actionChoosePartBodyScreenToChosenSymptomsScreen()
         this.findNavController().navigate(action)
     }
+
+
 
     override fun onClick(v: View?) {
 

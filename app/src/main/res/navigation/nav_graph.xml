@@ -83,7 +83,11 @@
             android:id="@+id/coughFragment"
             android:name="com.example.diplom.diseases.cough.CoughFragment"
             android:label="cough_fragment"
-            tools:layout="@layout/cough_fragment" />
+            tools:layout="@layout/cough_fragment" >
+            <argument
+                android:name="idSymptoms"
+                app:argType="integer" />
+        </fragment>
         <fragment
             android:id="@+id/dryCoughFragment"
             android:name="com.example.diplom.diseases.cough.DryCoughFragment"
