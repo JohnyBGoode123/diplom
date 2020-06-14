@@ -21,6 +21,7 @@ import com.example.diplom.common.models.SymptomsModel
 import com.example.diplom.databinding.FragmentCurrentSymptomsBinding
 import kotlinx.android.synthetic.main.fragment_current_symptoms.*
 
+
 class CurrentSymptomsFragment : Fragment() {
 val args: CurrentSymptomsFragmentArgs by navArgs()
      private val viewModel: CurrentSymptomsViewModel by viewModels {
@@ -33,10 +34,6 @@ val args: CurrentSymptomsFragmentArgs by navArgs()
     }
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-    }
 
     private lateinit var dataBinding: FragmentCurrentSymptomsBinding
     override fun onCreateView(

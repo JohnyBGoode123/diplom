@@ -3,10 +3,18 @@
     {
       "id": 1,
       "nameDisease": "Грипп",
+      "doctorCall": "Да",
+      "recommendation": "Корчмарь",
       "arrayDiseaseSymptoms": [
         {
           "idSymptom": 1,
           "idVariant": 1,
+          "idValue": 1,
+          "idRelevance": 3
+        },
+        {
+          "idSymptom": 2,
+          "idVariant": 2,
           "idValue": null,
           "idRelevance": 1
         }

@@ -1,32 +1,51 @@
 package com.example.diplom.diseases.cough
 
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.diplom.R
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.diplom.common.App
+import com.example.diplom.common.models.ValueSymptomsModel
+import com.example.diplom.databinding.CoughFragmentBinding
+import kotlinx.android.synthetic.main.cough_fragment.*
 
 class CoughFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = CoughFragment()
+    private val viewModel: CoughViewModel by viewModels {
+        val args = arguments?.getInt("args")
+
+        object : ViewModelProvider.Factory {
+            override fun <T : ViewModel?> create(modelClass: Class<T>): T =
+                args?.let { CoughViewModel(it, App.repositories.cough()) } as T
+        }
+
     }
-
-    private lateinit var viewModel: CoughViewModel
-
+    private lateinit var dataBinding: CoughFragmentBinding
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.cough_fragment, container, false)
+        dataBinding = CoughFragmentBinding.inflate(inflater, container, false)
+        return dataBinding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(CoughViewModel::class.java)
-        // TODO: Use the ViewModel
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        dataBinding.lifecycleOwner = viewLifecycleOwner
+        cough_recycler_view.layoutManager = LinearLayoutManager(requireContext())
+        val symptomsObserver = Observer<List<ValueSymptomsModel>> {
+            cough_recycler_view.adapter = CoughAdapter(it, viewModel)
+        }
+        cough_recycler_view.adapter?.notifyDataSetChanged()
+        viewModel.listValue.observe(viewLifecycleOwner, symptomsObserver)
+
     }
 
 }

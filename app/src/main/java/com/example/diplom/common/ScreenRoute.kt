@@ -14,8 +14,6 @@ object ScreenRoute {
             listRouteIterator.next()
         } else {
             0
-
-
         }
     }
 
@@ -28,7 +26,7 @@ object ScreenRoute {
     @JvmStatic
     fun nextScreen() {
         val arg = getNextScreen()
-        val bundle = bundleOf("amount" to arg)
+        val bundle = bundleOf("args" to arg)
         Constants.mapScreens[arg]?.let { it1 ->
             navController?.navigate(
                 it1, bundle

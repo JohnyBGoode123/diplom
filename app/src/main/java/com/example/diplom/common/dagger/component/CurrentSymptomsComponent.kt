@@ -2,13 +2,11 @@ package com.example.diplom.common.dagger.component
 
 import com.example.diplom.chooseBodyParts.ChooseBodyPartRepository
 import com.example.diplom.chosenSymptomsScreen.ChosenSymptomsScreenRepository
-import com.example.diplom.common.dagger.module.ChooseBodyPartModule
-import com.example.diplom.common.dagger.module.ChosenSymptomsScreenModule
-import com.example.diplom.common.dagger.module.CurrentSymptomsModule
-import com.example.diplom.common.dagger.module.DiagnosisModule
+import com.example.diplom.common.dagger.module.*
 import com.example.diplom.currentSymptomsScreen.CurrentSymptomsRepository
 import com.example.diplom.database.AppDataBase
 import com.example.diplom.diagnosis.DiagnosisRepository
+import com.example.diplom.diseases.cough.CoughRepository
 import dagger.Component
 @Component(
 
@@ -16,7 +14,8 @@ import dagger.Component
     modules = [CurrentSymptomsModule::class,
     ChosenSymptomsScreenModule::class,
     ChooseBodyPartModule::class,
-    DiagnosisModule::class]
+    DiagnosisModule::class,
+    CoughModule::class]
 )
     abstract class CurrentSymptomsComponent
     {
@@ -27,4 +26,6 @@ import dagger.Component
         abstract fun chosenBodyParts(): ChooseBodyPartRepository
 
         abstract fun diagnosis(): DiagnosisRepository
+
+        abstract fun cough(): CoughRepository
     }

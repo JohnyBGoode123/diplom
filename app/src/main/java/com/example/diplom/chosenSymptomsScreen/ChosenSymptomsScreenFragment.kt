@@ -63,6 +63,7 @@ class ChosenSymptomsScreenFragment : Fragment() {
         }
         viewModel.listSymptoms.observe(viewLifecycleOwner, symptomsObserver)
 
+
     }
 
 

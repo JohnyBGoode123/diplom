@@ -1,43 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".diseases.cough.CoughFragment">
+
     <data>
 
     </data>
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".diseases.cough.CoughFragment">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <TextView
-        style="@style/SymptomsTextStyle"
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_margin="40dp"
-        android:text="@string/coughTitle" />
-    <Button
-        android:id="@+id/wetCough"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/title"
-        android:layout_centerHorizontal="true"
-        android:text="@string/wetCough"
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:text="Hellodddddddddddddddddddd"
+            android:textSize="30sp"
+            android:textStyle="bold" />
 
-        
-        >
-    </Button>
-    <Button
-        android:layout_margin="20dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/wetCough"
-        android:layout_centerHorizontal="true"
-        android:text="@string/dryCough">
-    </Button>
 
-</RelativeLayout>
+        <androidx.recyclerview.widget.RecyclerView
+
+            android:id="@+id/cough_recycler_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title"
+            android:layout_marginStart="20dp"
+            android:orientation="vertical"
+
+            >
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+
+        <Button
+            android:id="@+id/nextScreen"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom|end"
+            android:layout_marginLeft="290dp"
+            android:text="Далее">
+
+        </Button>
+    </RelativeLayout>
+
 
 </layout>

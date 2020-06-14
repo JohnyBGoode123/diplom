@@ -29,6 +29,9 @@ abstract class DaoSymptoms {
     @Query("SELECT DISTINCT nameSymptom FROM Symptoms")
     abstract suspend fun getNameSymptoms(): List<String>
 
+    @Query("SELECT  * FROM ValueSymptoms Where idSymptoms = :idSymptoms")
+    abstract suspend fun getValueSymptom(idSymptoms: Int): List<ValueSymptoms>
+
 
 
     @Transaction
@@ -61,8 +64,6 @@ abstract class DaoSymptoms {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     abstract suspend fun insertRelevance(symptoms: MutableCollection<Relevance>)
 
-
-
     @Entity
     class Symptoms(
         @PrimaryKey
@@ -84,12 +85,13 @@ abstract class DaoSymptoms {
         @PrimaryKey
         override val idDisease: Int,
         override val nameDisease: String,
-        override val linkDiagnosis: Int
+        override val doctorCall: String,
+        override val recommendation: String
     ) : DiseaseModel
     @Entity(primaryKeys = ["idDisease", "idVariant"])
     class VariantSymptomsCrossRef(
-        override val idVariant: Int,
-        override val idDisease: Int
+        override val idDisease: Int,
+        override val idVariant: Int
     ) : DiseaseModelSymptoms
     @Entity
     class VariantSymptoms(
@@ -106,6 +108,7 @@ abstract class DaoSymptoms {
         override val id: Int,
         override val nameRelevance: String
     ) : RelevanceModel
+
 
 
 

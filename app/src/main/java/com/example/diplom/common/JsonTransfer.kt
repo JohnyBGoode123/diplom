@@ -77,7 +77,8 @@ class JsonTransfer(_ctx: Context) {
                 DaoSymptoms.Disease(
                     i.id,
                     i.nameDisease,
-                    1
+                    i.doctorCall,
+                    i.recommendation
                 )
             )
         }
@@ -91,7 +92,7 @@ class JsonTransfer(_ctx: Context) {
                 listVariantSymptomsCrossRef.add(
                     DaoSymptoms.VariantSymptomsCrossRef(
                         i.id,
-                        j.idSymptom
+                        j.idVariant
                     )
                 )
 

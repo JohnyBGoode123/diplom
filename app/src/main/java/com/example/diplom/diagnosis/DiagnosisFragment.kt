@@ -6,27 +6,36 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModel
 import com.example.diplom.R
-
+import com.example.diplom.common.App
+import com.example.diplom.databinding.DiagnosisFragmentBinding
 class DiagnosisFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = DiagnosisFragment()
+    private val viewModel: DiagnosisViewModel by viewModels {
+
+        object : ViewModelProvider.Factory {
+            override fun <T : ViewModel?> create(modelClass: Class<T>): T =
+                DiagnosisViewModel( App.repositories.diagnosis()) as T
+        }
+
     }
-
-    private lateinit var viewModel: DiagnosisViewModel
-
+    private lateinit var dataBinding: DiagnosisFragmentBinding
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.diagnosis_fragment, container, false)
+        dataBinding = DataBindingUtil.inflate(inflater, R.layout.diagnosis_fragment, container, false)
+        dataBinding.lifecycleOwner = viewLifecycleOwner
+        dataBinding.viewModel = viewModel
+        return dataBinding.root
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(DiagnosisViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
+    }
 }
