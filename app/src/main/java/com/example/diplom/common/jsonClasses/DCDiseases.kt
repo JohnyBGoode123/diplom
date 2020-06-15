@@ -12,7 +12,7 @@ data class ArrayDisease(
     val nameDisease: String,
     val doctorCall: String,
     val recommendation: String,
-    val arrayDiseaseSymptoms: List<ArrayDiseaseSymptoms>
+    val arrayDiseaseSymptoms: List<ArrayDiseaseSymptoms>?
 )
 
 data class ArrayDiseaseSymptoms(

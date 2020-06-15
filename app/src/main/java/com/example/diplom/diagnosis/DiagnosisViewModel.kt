@@ -35,7 +35,7 @@ class DiagnosisViewModel(
             }
         }
     }
-    fun getDiagnosisChosenDisease(id: Int)
+    private fun getDiagnosisChosenDisease(id: Int)
     {
         viewModelScope.launch {
             val tmpDisease: List<DiseaseModel>? = try {

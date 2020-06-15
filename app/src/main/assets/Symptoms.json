@@ -20,6 +20,31 @@
       "nameSymptoms": "Головная боль",
       "nameBodyPart": "Голова",
       "arrayValueSymptoms": null
+    },
+    {
+      "id": 3,
+      "nameSymptoms": "Высокая температура",
+      "nameBodyPart": "Общее недомогание",
+      "arrayValueSymptoms": null
+    },
+    {
+      "id": 4,
+      "nameSymptoms": "Озноб",
+      "nameBodyPart": "Общее недомогание",
+      "arrayValueSymptoms": null
+    },
+    {
+      "id": 5,
+      "nameSymptoms": "Боль в горле",
+      "nameBodyPart": "Горло",
+      "arrayValueSymptoms": null
+    },
+    {
+      "id": 6,
+      "nameSymptoms": "Насморк",
+      "nameBodyPart": "Голова",
+      "arrayValueSymptoms": null
     }
+
   ]
 }

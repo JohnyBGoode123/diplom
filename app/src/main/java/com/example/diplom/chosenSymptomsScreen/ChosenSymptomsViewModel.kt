@@ -89,13 +89,16 @@ class ChosenSymptomsViewModel(
 
 private fun removeGeneralSymptom(tmpList: MutableList<Int>): MutableList<Int>
 {
+    val tmpListScreen: MutableList<Int> = mutableListOf()
     for (i in tmpList)
-    if (!Constants.mapScreens.containsKey(i))
+    if (Constants.mapScreens.containsKey(i))
     {
-        tmpList.remove(i)
+        tmpListScreen.add(i)
+    }
+    else{
         UserSymptoms.addUserSymptom(i)
     }
-    return tmpList
+    return tmpListScreen
 }
 /* viewModelScope.launch {
             var tmpList: List<Int> = try {

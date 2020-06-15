@@ -88,15 +88,18 @@ class JsonTransfer(_ctx: Context) {
         val obj: DCDiseases =
             Gson().fromJson(getJsonString("Disease.json"), DCDiseases::class.java)
         for (i in obj.arrayDisease) {
-            for (j in i.arrayDiseaseSymptoms) {
-                listVariantSymptomsCrossRef.add(
-                    DaoSymptoms.VariantSymptomsCrossRef(
-                        i.id,
-                        j.idVariant
+            i.arrayDiseaseSymptoms?.let {
+                for (j in it) {
+                    listVariantSymptomsCrossRef.add(
+                        DaoSymptoms.VariantSymptomsCrossRef(
+                            i.id,
+                            j.idVariant
+                        )
                     )
-                )
 
+                }
             }
+
 
         }
     }
@@ -120,16 +123,19 @@ class JsonTransfer(_ctx: Context) {
         val obj: DCDiseases =
             Gson().fromJson(getJsonString("Disease.json"), DCDiseases::class.java)
         for (i in obj.arrayDisease) {
-            for (j in i.arrayDiseaseSymptoms) {
-                listVariant.add(
-                    DaoSymptoms.VariantSymptoms(
-                        j.idVariant,
-                        j.idSymptom,
-                        j.idValue,
-                        j.idRelevance
+            i.arrayDiseaseSymptoms?.let {
+                for (j in it) {
+                    listVariant.add(
+                        DaoSymptoms.VariantSymptoms(
+                            j.idVariant,
+                            j.idSymptom,
+                            j.idValue,
+                            j.idRelevance
+                        )
                     )
-                )
+                }
             }
+
         }
     }
 

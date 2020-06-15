@@ -16,18 +16,21 @@
         android:orientation="vertical">
 
         <TextView
+           style = "@style/DiagnosisText"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:text="@{viewModel.foundDisease[0].nameDisease}" />
 
         <TextView
+            style = "@style/DiagnosisText"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:text="@{String.valueOf(viewModel.foundDisease[0].doctorCall)}" />
 
         <TextView
+            style = "@style/DiagnosisText"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="5"

@@ -28,20 +28,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/buttonChoseSymptoms"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="200dp"
             >
 
         </Button>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            style="@style/Start_fragment_buttons"
-            android:textSize="15sp"
-            android:text="@string/buttonHistory"
-            android:layout_marginTop="60dp"
-            >
 
-        </Button>
 
     </LinearLayout>
 

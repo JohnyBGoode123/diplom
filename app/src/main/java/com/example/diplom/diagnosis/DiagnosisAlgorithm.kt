@@ -51,7 +51,13 @@ object DiagnosisAlgorithm {
                     }
                 }
             }
-            probability = (count / n).toDouble()
+            probability = try {
+                (count / n).toDouble()
+            } catch (ex: Exception) {
+                0.0
+            }
+
+
             if (probability >= 0.5 && probability > maxProbability) {
                 maxProbability = probability
                 resultId = i.disease.idDisease

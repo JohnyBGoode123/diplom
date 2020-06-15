@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">Diplom</string>
-    <string name="titleStartFragment">Название приложения</string>
+    <string name="titleStartFragment">Результаты работы приложения носят лишь рекомендательный характер. Окончательный диагноз может поставить только врач</string>
     <string name="buttonChoseSymptoms">Выбор симптомов</string>
     <string name="buttonHistory">Просмотр истории диагнозов</string>
     <string name="buttonEmergencyCall">Экстренный вызов</string>

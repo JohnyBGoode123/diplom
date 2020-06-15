@@ -1,22 +1,53 @@
 {
   "arrayDisease": [
     {
+      "id": 0,
+      "nameDisease": "Приложению. не удалось определить ваш диагноз.",
+      "doctorCall": "Если вы чувствуете сильное недомагание,\n обратитесь к врачу",
+      "recommendation": "",
+      "arrayDiseaseSymptoms": null
+    },
+    {
       "id": 1,
-      "nameDisease": "Грипп",
-      "doctorCall": "Да",
-      "recommendation": "Корчмарь",
+      "nameDisease": "Приложение определило у вас грипп",
+      "doctorCall": "Домашнее лечение допустимо, однако рекомендуется сообщить о болезни врачу ",
+      "recommendation": "Общие принципы лечения гриппа сходны с лечением ОРВИ, но в месте с тем показан прием противовирусных препаратов – ремантадина, озельтамивира, амантадина, занамивира.\nПоказан постельный режим и жаропонижающие",
       "arrayDiseaseSymptoms": [
         {
           "idSymptom": 1,
           "idVariant": 1,
           "idValue": 1,
-          "idRelevance": 3
+          "idRelevance": 2
         },
         {
           "idSymptom": 2,
           "idVariant": 2,
           "idValue": null,
-          "idRelevance": 1
+          "idRelevance": 3
+        },
+        {
+          "idSymptom": 3,
+          "idVariant": 3,
+          "idValue": null,
+          "idRelevance": 3
+        },
+        {
+          "idSymptom": 4,
+          "idVariant": 4,
+          "idValue": null,
+          "idRelevance": 3
+        },
+        {
+          "idSymptom": 5,
+          "idVariant": 5,
+          "idValue": null,
+          "idRelevance": 3
+        },
+        {
+          "idSymptom": 6,
+          "idVariant": 6,
+          "idValue": null,
+          "idRelevance": 3
         }
       ]
     }

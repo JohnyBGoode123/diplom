@@ -17,7 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="40dp"
-            android:text="Hellodddddddddddddddddddd"
+            android:text="Выберите характер кашля"
             android:textSize="30sp"
             android:textStyle="bold" />
 
@@ -28,25 +28,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/title"
-            android:layout_marginStart="20dp"
             android:orientation="vertical"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
 
             >
 
         </androidx.recyclerview.widget.RecyclerView>
 
 
-        <Button
-            android:id="@+id/nextScreen"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentBottom="true"
-            android:layout_gravity="bottom|end"
-            android:layout_marginLeft="290dp"
-            android:text="Далее">
-
-        </Button>
     </RelativeLayout>
 
 
