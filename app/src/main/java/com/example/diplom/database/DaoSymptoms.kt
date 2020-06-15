@@ -32,6 +32,9 @@ abstract class DaoSymptoms {
     @Query("SELECT  * FROM ValueSymptoms Where idSymptoms = :idSymptoms")
     abstract suspend fun getValueSymptom(idSymptoms: Int): List<ValueSymptoms>
 
+    @Query("SELECT * FROM Disease Where idDisease = :id")
+    abstract suspend fun getChosenDisease(id: Int): List<Disease>
+
 
 
     @Transaction

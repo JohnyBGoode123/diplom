@@ -15,5 +15,4 @@ data class DiseaseWithVariantSymptoms(
         associateBy = Junction(DaoSymptoms.VariantSymptomsCrossRef::class)
     )
     val variant: List<DaoSymptoms.VariantSymptoms>
-
 )

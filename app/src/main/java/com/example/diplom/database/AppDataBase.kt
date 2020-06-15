@@ -12,7 +12,7 @@ import androidx.room.RoomDatabase
         DaoSymptoms.Relevance::class,
         DaoSymptoms.VariantSymptoms::class
 ],
-version = 25
+version = 27
 )
 
 abstract class AppDataBase: RoomDatabase(){
