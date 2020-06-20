@@ -44,6 +44,17 @@
       "nameSymptoms": "Насморк",
       "nameBodyPart": "Голова",
       "arrayValueSymptoms": null
+    },
+    {
+      "id": 7,
+      "nameSymptoms": "Желтые пятна на коже",
+      "nameBodyPart": "Кожа",
+      "arrayValueSymptoms": null
+    }, {
+      "id": 8,
+      "nameSymptoms": "Зуд",
+      "nameBodyPart": "Кожа",
+      "arrayValueSymptoms": null
     }
 
   ]

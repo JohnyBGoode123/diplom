@@ -98,6 +98,10 @@ private fun removeGeneralSymptom(tmpList: MutableList<Int>): MutableList<Int>
     else{
         UserSymptoms.addUserSymptom(i)
     }
+    if(tmpListScreen.size ==0)
+    {
+        tmpListScreen.add(0)
+    }
     return tmpListScreen
 }
 /* viewModelScope.launch {

@@ -50,6 +50,27 @@
           "idRelevance": 3
         }
       ]
+    },
+    {
+      "id": 2,
+      "nameDisease": "Приложение определило у вас желтуху",
+      "doctorCall": "Необходимо обратиться к гематологу ",
+      "recommendation": "",
+      "arrayDiseaseSymptoms": [
+        {
+          "idSymptom": 7,
+          "idVariant": 7,
+          "idValue": null,
+          "idRelevance": 1
+        },
+        {
+          "idSymptom": 8,
+          "idVariant":8,
+          "idValue": null,
+          "idRelevance": 2
+        }
+
+      ]
     }
   ]
 }
