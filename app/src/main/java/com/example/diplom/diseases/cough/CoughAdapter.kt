@@ -11,6 +11,7 @@ import kotlinx.android.synthetic.main.chose_symptoms_list_item.view.*
 class CoughAdapter(
     private var listValue: List<ValueSymptomsModel>,
     private var viewModel: CoughViewModel
+
 ) : RecyclerView.Adapter<CoughAdapter.CoughViewHolder>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -21,10 +22,10 @@ class CoughAdapter(
             parent,
             false
         )
-        dietBinding.button.setOnClickListener {
-            val button: Button = it as Button
-            viewModel.buttonClick(button.text.toString())
-        }
+//        dietBinding.button.setOnClickListener {
+//            val button: Button = it as Button
+//            viewModel.buttonClick(button.text.toString())
+//        }
         return CoughViewHolder(dietBinding)
     }
 
@@ -40,6 +41,10 @@ class CoughAdapter(
         holder.symptomsBinding.listValueItem = listValue[position]
         holder.symptomsBinding.viewModel = viewModel
         holder.symptomsBinding.position = position
+        holder.symptomsBinding.radio.setOnClickListener {
+            viewModel.radioButtonClick(position)
+            notifyDataSetChanged()
+        }
     }
 
     class CoughViewHolder(val symptomsBinding: CoughtListItemBinding) :
