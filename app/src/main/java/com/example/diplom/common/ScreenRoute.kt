@@ -8,6 +8,8 @@ object ScreenRoute {
     lateinit var listRoute: MutableList<Int>
     lateinit var listRouteIterator: Iterator<Int>
 
+
+
     @JvmStatic
     fun getNextScreen(): Int {
         return if (listRouteIterator.hasNext()) {
@@ -21,6 +23,8 @@ object ScreenRoute {
     fun initListRoute(tmpList: MutableList<Int>) {
         listRoute = tmpList
         listRouteIterator = listRoute.iterator()
+
+
     }
 
     @JvmStatic

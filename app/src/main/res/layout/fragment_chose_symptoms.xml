@@ -34,8 +34,6 @@
             android:text="@string/CBPb_action"
             android:layout_gravity="bottom|end"
 
-            android:layout_alignParentBottom="true"
-
             >
 
         </Button>

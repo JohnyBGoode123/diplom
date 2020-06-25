@@ -8,14 +8,13 @@ import com.example.diplom.common.ScreenRoute
 import com.example.diplom.common.UserSymptoms
 import com.example.diplom.common.models.ValueSymptomsModel
 import kotlinx.coroutines.launch
-import java.text.FieldPosition
 
 class CoughViewModel(
     private val idSymptom: Int,
     private val repository: CoughRepository
 ) : ViewModel() {
     var tmpArrayBoolean = emptyArray<Boolean>()
-        private var _listValue: List<ValueSymptomsModel>? = null
+    private var _listValue: List<ValueSymptomsModel>? = null
         set(value) {
             field = value
             (listValue as MutableLiveData).postValue(value)
@@ -23,10 +22,10 @@ class CoughViewModel(
     val listValue: LiveData<List<ValueSymptomsModel>> = MutableLiveData()
 
     private var _arrayChecked = emptyArray<Boolean>()
-    set(value) {
-        field = value
-        (arrayChecked as MutableLiveData).postValue(value)
-    }
+        set(value) {
+            field = value
+            (arrayChecked as MutableLiveData).postValue(value)
+        }
     val arrayChecked: LiveData<Array<Boolean>> = MutableLiveData()
 
     init {
@@ -39,8 +38,7 @@ class CoughViewModel(
             }
             listValue?.let {
                 _listValue = it
-                for(i in it)
-                {
+                for (i in it) {
                     tmpArrayBoolean += false
                 }
                 _arrayChecked = tmpArrayBoolean
@@ -49,13 +47,10 @@ class CoughViewModel(
     }
 
 
-    fun radioButtonClick(position: Int)
-    {
+    fun radioButtonClick(position: Int) {
         tmpArrayBoolean[position] = true
-        for (i in tmpArrayBoolean.indices)
-        {
-            if(i != position)
-            {
+        for (i in tmpArrayBoolean.indices) {
+            if (i != position) {
                 tmpArrayBoolean[i] = false
             }
         }
@@ -63,18 +58,15 @@ class CoughViewModel(
     }
 
 
-
-    fun buttonClick(text: String) {
-       val tmp = _listValue?.first { it.nameValue == text }
-       tmp?.let {
-           UserSymptoms.addUserSymptom(it.idSymptoms,it.id)
-       }
+    fun buttonClick() {
+        // вернет -1 если такого элемента нет, то есть пользователь нажал на кнопку ничего не выбрав
+        val chosenPosition = _arrayChecked.indexOfFirst { it }
+        val tmp = _listValue?.get(chosenPosition)
+        tmp?.let {
+            UserSymptoms.addUserSymptom(it.idSymptoms, it.id)
+        }
         ScreenRoute.nextScreen()
     }
-
-
-
-
 
 
 }

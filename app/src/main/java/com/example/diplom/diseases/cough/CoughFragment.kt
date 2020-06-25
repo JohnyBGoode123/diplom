@@ -33,6 +33,10 @@ class CoughFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         dataBinding = CoughFragmentBinding.inflate(inflater, container, false)
+        dataBinding.nextScreen.setOnClickListener {
+            viewModel.buttonClick()
+
+        }
         return dataBinding.root
     }
 
