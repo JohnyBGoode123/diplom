@@ -5,4 +5,5 @@ interface SymptomsModel {
     val nameSymptom: String
     val bodyParts: String
     var selectionMark: Boolean
+    val title: String?
 }

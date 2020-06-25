@@ -20,6 +20,8 @@ class JsonTransfer(_ctx: Context) {
         mutableListOf()
     var listVariant: MutableCollection<DaoSymptoms.VariantSymptoms> =
         mutableListOf()
+    var listGroupValueSymptoms: MutableCollection<DaoSymptoms.GroupValueSymptoms> =
+        mutableListOf()
     private var context: Context? = _ctx
     private fun getJsonString(fileString: String): String =
         context?.assets?.open(fileString)?.bufferedReader().use {
@@ -33,6 +35,7 @@ class JsonTransfer(_ctx: Context) {
         setDiseaseSymptomsCrossRef()
         setListRelevance()
         setListVariant()
+        setGroupValueSymptoms()
     }
 
     private fun setListSymptoms() {
@@ -44,9 +47,29 @@ class JsonTransfer(_ctx: Context) {
                     i.id,
                     i.nameSymptoms,
                     i.nameBodyPart,
-                    false
+                    false,
+                    i.title
+
                 )
             )
+        }
+    }
+
+    private fun setGroupValueSymptoms() {
+        val obj: DCSymptoms =
+            Gson().fromJson(getJsonString("Symptoms.json"), DCSymptoms::class.java)
+        for (i in obj.arraySymptoms) {
+            // а если здесь симптом будет пустой, что тогда? Может быть let сделать
+            i.arrayGroupValueSymptom?.let {
+                for (j in it) {
+                    listGroupValueSymptoms.add(
+                        DaoSymptoms.GroupValueSymptoms(
+                            j,
+                            i.id
+                        )
+                    )
+                }
+            }
         }
     }
 
@@ -61,7 +84,7 @@ class JsonTransfer(_ctx: Context) {
                         DaoSymptoms.ValueSymptoms(
                             j.id,
                             j.nameValueSymptom,
-                            i.id
+                            j.idGroup
                         )
                     )
                 }
@@ -103,7 +126,6 @@ class JsonTransfer(_ctx: Context) {
 
         }
     }
-
 
 
     private fun setListRelevance() {

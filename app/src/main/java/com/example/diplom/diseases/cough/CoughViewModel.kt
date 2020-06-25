@@ -63,7 +63,7 @@ class CoughViewModel(
         val chosenPosition = _arrayChecked.indexOfFirst { it }
         val tmp = _listValue?.get(chosenPosition)
         tmp?.let {
-            UserSymptoms.addUserSymptom(it.idSymptoms, it.id)
+            UserSymptoms.addUserSymptom(it.idGroup, it.id)
         }
         ScreenRoute.nextScreen()
     }

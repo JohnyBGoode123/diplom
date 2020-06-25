@@ -10,11 +10,12 @@ import androidx.room.RoomDatabase
         DaoSymptoms.Disease::class,
         DaoSymptoms.VariantSymptomsCrossRef::class,
         DaoSymptoms.Relevance::class,
-        DaoSymptoms.VariantSymptoms::class
-],
-version = 27
+        DaoSymptoms.VariantSymptoms::class,
+        DaoSymptoms.GroupValueSymptoms::class
+    ],
+    version = 28
 )
 
-abstract class AppDataBase: RoomDatabase(){
+abstract class AppDataBase : RoomDatabase() {
     abstract fun getDao(): DaoSymptoms
 }

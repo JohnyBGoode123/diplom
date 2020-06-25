@@ -29,12 +29,11 @@ abstract class DaoSymptoms {
     @Query("SELECT DISTINCT nameSymptom FROM Symptoms")
     abstract suspend fun getNameSymptoms(): List<String>
 
-    @Query("SELECT  * FROM ValueSymptoms Where idSymptoms = :idSymptoms")
+    @Query("SELECT  * FROM ValueSymptoms Where idGroup = :idSymptoms")
     abstract suspend fun getValueSymptom(idSymptoms: Int): List<ValueSymptoms>
 
     @Query("SELECT * FROM Disease Where idDisease = :id")
     abstract suspend fun getChosenDisease(id: Int): List<Disease>
-
 
 
     @Transaction
@@ -58,6 +57,9 @@ abstract class DaoSymptoms {
     abstract suspend fun insertDisease(symptoms: MutableCollection<Disease>)
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
+    abstract suspend fun insertGroupValueSymptoms(symptoms: MutableCollection<GroupValueSymptoms>)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     abstract suspend fun insertVariantSymptomsCrossRef(symptoms: MutableCollection<VariantSymptomsCrossRef>)
 
 
@@ -73,16 +75,25 @@ abstract class DaoSymptoms {
         override val id: Int,
         override val nameSymptom: String,
         override val bodyParts: String,
-        override var selectionMark: Boolean
+        override var selectionMark: Boolean,
+        override val title: String?
     ) : SymptomsModel
+
+    @Entity
+    class GroupValueSymptoms(
+        @PrimaryKey
+        override val idGroup: Int,
+        override val idSymptom: Int
+    ):GroupValueSymptomsModel
 
     @Entity
     class ValueSymptoms(
         @PrimaryKey
         override val id: Int,
         override val nameValue: String,
-        override val idSymptoms: Int
+        override val idGroup: Int
     ) : ValueSymptomsModel
+
     @Entity
     class Disease(
         @PrimaryKey
@@ -91,11 +102,13 @@ abstract class DaoSymptoms {
         override val doctorCall: String,
         override val recommendation: String
     ) : DiseaseModel
+
     @Entity(primaryKeys = ["idDisease", "idVariant"])
     class VariantSymptomsCrossRef(
         override val idDisease: Int,
         override val idVariant: Int
     ) : DiseaseModelSymptoms
+
     @Entity
     class VariantSymptoms(
         @PrimaryKey
@@ -111,8 +124,6 @@ abstract class DaoSymptoms {
         override val id: Int,
         override val nameRelevance: String
     ) : RelevanceModel
-
-
 
 
 }

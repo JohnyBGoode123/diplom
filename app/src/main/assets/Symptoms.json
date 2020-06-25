@@ -4,14 +4,31 @@
       "id": 1,
       "nameSymptoms": "Кашель",
       "nameBodyPart": "Рот",
+      "title": "Выберите тип кашля",
+      "arrayGroupValueSymptom": [
+        1,2
+      ],
       "arrayValueSymptoms": [
         {
+
           "id": 1,
-          "nameValueSymptom": "Сухой"
+          "nameValueSymptom": "Сухой",
+          "idGroup": 1
         },
         {
           "id": 2,
-          "nameValueSymptom": "Мокрый"
+          "nameValueSymptom": "Мокрый",
+          "idGroup": 1
+        },
+        {
+          "id": 3,
+          "nameValueSymptom": "Продолжительный",
+          "idGroup": 2
+        },
+        {
+          "id": 4,
+          "nameValueSymptom": "Периодический",
+          "idGroup": 2
         }
       ]
     },
@@ -19,41 +36,55 @@
       "id": 2,
       "nameSymptoms": "Головная боль",
       "nameBodyPart": "Голова",
+      "title": null,
+      "arrayGroupValueSymptom":null,
       "arrayValueSymptoms": null
     },
     {
       "id": 3,
       "nameSymptoms": "Высокая температура",
       "nameBodyPart": "Общее недомогание",
+      "title": null,
+      "arrayGroupValueSymptom":null,
       "arrayValueSymptoms": null
     },
     {
       "id": 4,
       "nameSymptoms": "Озноб",
       "nameBodyPart": "Общее недомогание",
+      "title": null,
+      "arrayGroupValueSymptom":null,
       "arrayValueSymptoms": null
     },
     {
       "id": 5,
       "nameSymptoms": "Боль в горле",
       "nameBodyPart": "Горло",
+      "title": null,
+      "arrayGroupValueSymptom":null,
       "arrayValueSymptoms": null
     },
     {
       "id": 6,
       "nameSymptoms": "Насморк",
       "nameBodyPart": "Голова",
+      "title": null,
+      "arrayGroupValueSymptom":null,
       "arrayValueSymptoms": null
     },
     {
       "id": 7,
       "nameSymptoms": "Желтые пятна на коже",
       "nameBodyPart": "Кожа",
+      "title": null,
+      "arrayGroupValueSymptom":null,
       "arrayValueSymptoms": null
     }, {
       "id": 8,
       "nameSymptoms": "Зуд",
       "nameBodyPart": "Кожа",
+      "title": null,
+      "arrayGroupValueSymptom":null,
       "arrayValueSymptoms": null
     }
 

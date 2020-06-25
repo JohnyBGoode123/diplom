@@ -24,15 +24,12 @@ class InitDB : ViewModel() {
             try {
 
                 initDB?.insertSymptoms(jsonTransfer.listSymptoms)
-
-
                 initDB?.insertValueSymptoms(jsonTransfer.listValueSymptoms)
-
-
                 initDB?.insertDisease(jsonTransfer.listDisease)
                 initDB?.insertVariantSymptomsCrossRef(jsonTransfer.listVariantSymptomsCrossRef)
                 initDB?.insertVariantSymptoms(jsonTransfer.listVariant)
                 initDB?.insertRelevance(jsonTransfer.listRelevance)
+                initDB?.insertGroupValueSymptoms(jsonTransfer.listGroupValueSymptoms)
 
 
             } catch (t: Throwable) {
