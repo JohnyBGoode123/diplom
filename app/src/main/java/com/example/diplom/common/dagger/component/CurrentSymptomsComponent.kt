@@ -6,7 +6,7 @@ import com.example.diplom.common.dagger.module.*
 import com.example.diplom.currentSymptomsScreen.CurrentSymptomsRepository
 import com.example.diplom.database.AppDataBase
 import com.example.diplom.diagnosis.DiagnosisRepository
-import com.example.diplom.diseases.cough.CoughRepository
+import com.example.diplom.detailedInquiry.DetailedInquiryRepository
 import dagger.Component
 @Component(
 
@@ -27,5 +27,5 @@ import dagger.Component
 
         abstract fun diagnosis(): DiagnosisRepository
 
-        abstract fun cough(): CoughRepository
+        abstract fun cough(): DetailedInquiryRepository
     }

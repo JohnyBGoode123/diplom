@@ -9,7 +9,7 @@
 
         <variable
             name="viewModel"
-            type="com.example.diplom.diseases.cough.CoughViewModel" />
+            type="com.example.diplom.detailedInquiry.DetailedInquiryViewModel" />
 
         <variable
             name="position"

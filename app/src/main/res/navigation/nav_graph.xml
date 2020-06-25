@@ -74,7 +74,7 @@
     </navigation>
     <fragment
         android:id="@+id/coughFragment2"
-        android:name="com.example.diplom.diseases.cough.CoughFragment"
+        android:name="com.example.diplom.detailedInquiry.DetailedInquiryFragment"
         android:label="cough_fragment"
-        tools:layout="@layout/cough_fragment" />
+        tools:layout="@layout/detailedinquiry_fragment" />
 </navigation>

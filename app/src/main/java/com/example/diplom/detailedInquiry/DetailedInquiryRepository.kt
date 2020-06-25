@@ -1,7 +1,7 @@
-package com.example.diplom.diseases.cough
+package com.example.diplom.detailedInquiry
 
 import com.example.diplom.common.models.ValueSymptomsModel
 
-interface CoughRepository {
+interface DetailedInquiryRepository {
     suspend fun getValueSymptom(idSymptom: Int): List<ValueSymptomsModel>
 }

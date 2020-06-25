@@ -1,4 +1,4 @@
-package com.example.diplom.diseases.cough
+package com.example.diplom.detailedInquiry
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,27 +12,27 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.diplom.common.App
 import com.example.diplom.common.models.ValueSymptomsModel
-import com.example.diplom.databinding.CoughFragmentBinding
-import kotlinx.android.synthetic.main.cough_fragment.*
+import com.example.diplom.databinding.DetailedinquiryFragmentBinding
+import kotlinx.android.synthetic.main.detailedinquiry_fragment.*
 
-class CoughFragment : Fragment() {
+class DetailedInquiryFragment : Fragment() {
 
-    private val viewModel: CoughViewModel by viewModels {
+    private val viewModel: DetailedInquiryViewModel by viewModels {
         val args = arguments?.getInt("args")
 
         object : ViewModelProvider.Factory {
             override fun <T : ViewModel?> create(modelClass: Class<T>): T =
-                args?.let { CoughViewModel(it, App.repositories.cough()) } as T
+                args?.let { DetailedInquiryViewModel(it, App.repositories.cough()) } as T
         }
 
     }
-    private lateinit var dataBinding: CoughFragmentBinding
+    private lateinit var dataBinding: DetailedinquiryFragmentBinding
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        dataBinding = CoughFragmentBinding.inflate(inflater, container, false)
+        dataBinding = DetailedinquiryFragmentBinding.inflate(inflater, container, false)
         dataBinding.nextScreen.setOnClickListener {
             viewModel.buttonClick()
 
@@ -45,7 +45,7 @@ class CoughFragment : Fragment() {
         dataBinding.lifecycleOwner = viewLifecycleOwner
         cough_recycler_view.layoutManager = LinearLayoutManager(requireContext())
         val symptomsObserver = Observer<List<ValueSymptomsModel>> {
-            cough_recycler_view.adapter = CoughAdapter(it, viewModel)
+            cough_recycler_view.adapter = DetailedInquiryAdapter(it, viewModel)
         }
         cough_recycler_view.adapter?.notifyDataSetChanged()
         viewModel.listValue.observe(viewLifecycleOwner, symptomsObserver)

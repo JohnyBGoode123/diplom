@@ -1,4 +1,4 @@
-package com.example.diplom.diseases.cough
+package com.example.diplom.detailedInquiry
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -9,9 +9,9 @@ import com.example.diplom.common.UserSymptoms
 import com.example.diplom.common.models.ValueSymptomsModel
 import kotlinx.coroutines.launch
 
-class CoughViewModel(
+class DetailedInquiryViewModel(
     private val idSymptom: Int,
-    private val repository: CoughRepository
+    private val repository: DetailedInquiryRepository
 ) : ViewModel() {
     var tmpArrayBoolean = emptyArray<Boolean>()
     private var _listValue: List<ValueSymptomsModel>? = null

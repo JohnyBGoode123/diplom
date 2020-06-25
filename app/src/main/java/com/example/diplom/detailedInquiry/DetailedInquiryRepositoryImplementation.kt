@@ -1,11 +1,11 @@
-package com.example.diplom.diseases.cough
+package com.example.diplom.detailedInquiry
 
 import com.example.diplom.common.models.ValueSymptomsModel
 import com.example.diplom.database.DaoSymptoms
 
-class CoughRepositoryImplementation(
+class DetailedInquiryRepositoryImplementation(
     private val daoSymptoms: DaoSymptoms
-) : CoughRepository
+) : DetailedInquiryRepository
 {
     override suspend fun getValueSymptom(idSymptom: Int): List<ValueSymptomsModel> =
         daoSymptoms.getValueSymptom(idSymptom)

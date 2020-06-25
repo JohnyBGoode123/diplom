@@ -1,23 +1,21 @@
-package com.example.diplom.diseases.cough
+package com.example.diplom.detailedInquiry
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.Button
 import androidx.recyclerview.widget.RecyclerView
 import com.example.diplom.common.models.ValueSymptomsModel
-import com.example.diplom.databinding.CoughtListItemBinding
-import kotlinx.android.synthetic.main.chose_symptoms_list_item.view.*
+import com.example.diplom.databinding.DetailedinquiryListItemBinding
 
-class CoughAdapter(
+class DetailedInquiryAdapter(
     private var listValue: List<ValueSymptomsModel>,
-    private var viewModel: CoughViewModel
+    private var viewModel: DetailedInquiryViewModel
 
-) : RecyclerView.Adapter<CoughAdapter.CoughViewHolder>() {
+) : RecyclerView.Adapter<DetailedInquiryAdapter.CoughViewHolder>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
     ): CoughViewHolder {
-        val dietBinding = CoughtListItemBinding.inflate(
+        val dietBinding = DetailedinquiryListItemBinding.inflate(
             LayoutInflater.from(parent.context),
             parent,
             false
@@ -47,7 +45,7 @@ class CoughAdapter(
         }
     }
 
-    class CoughViewHolder(val symptomsBinding: CoughtListItemBinding) :
+    class CoughViewHolder(val symptomsBinding: DetailedinquiryListItemBinding) :
         RecyclerView.ViewHolder(symptomsBinding.root)
 
 }

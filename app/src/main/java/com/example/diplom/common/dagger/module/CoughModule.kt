@@ -1,10 +1,8 @@
 package com.example.diplom.common.dagger.module
 
-import com.example.diplom.currentSymptomsScreen.CurrentSymptomsRepository
-import com.example.diplom.currentSymptomsScreen.CurrentSymptomsRepositoryImplementation
 import com.example.diplom.database.AppDataBase
-import com.example.diplom.diseases.cough.CoughRepository
-import com.example.diplom.diseases.cough.CoughRepositoryImplementation
+import com.example.diplom.detailedInquiry.DetailedInquiryRepository
+import com.example.diplom.detailedInquiry.DetailedInquiryRepositoryImplementation
 import dagger.Module
 import dagger.Provides
 
@@ -14,7 +12,7 @@ class CoughModule {
     @Provides
     fun coughList(
         dao: AppDataBase
-    ): CoughRepository = CoughRepositoryImplementation(
+    ): DetailedInquiryRepository = DetailedInquiryRepositoryImplementation(
         daoSymptoms = dao.getDao()
     )
 }
