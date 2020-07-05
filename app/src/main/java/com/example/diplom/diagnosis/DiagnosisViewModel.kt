@@ -31,7 +31,7 @@ class DiagnosisViewModel(
                 null
             }
             tmpListDisease?.let {
-                getDiagnosisChosenDisease(2)
+                getDiagnosisChosenDisease(DiagnosisAlgorithm.algorithm(UserSymptoms.listUserSymptom,tmpListDisease))
             }
         }
     }

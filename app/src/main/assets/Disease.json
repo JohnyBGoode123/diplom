@@ -28,7 +28,7 @@
         {
           "idSymptom": 3,
           "idVariant": 3,
-          "idValue": null,
+          "idValue": 8,
           "idRelevance": 3
         },
         {
@@ -67,6 +67,101 @@
           "idSymptom": 8,
           "idVariant":8,
           "idValue": null,
+          "idRelevance": 2
+        }
+
+      ]
+    },{
+      "id": 3,
+      "nameDisease": "Приложение определило у вас ботулизм",
+      "doctorCall": "Необходимо срочно обратиться к врачу ",
+      "recommendation": "Первая помощь при ботулизме заключается в промывании желудка 5% раствором соды",
+      "arrayDiseaseSymptoms": [
+        {
+          "idSymptom": 9,
+          "idVariant": 9,
+          "idValue": null,
+          "idRelevance": 3
+        },
+        {
+          "idSymptom": 10,
+          "idVariant":10,
+          "idValue": null,
+          "idRelevance": 3
+        },
+        {
+          "idSymptom": 11,
+          "idVariant": 11,
+          "idValue": null,
+          "idRelevance": 2
+        },
+        {
+          "idSymptom": 12,
+          "idVariant":10,
+          "idValue": null,
+          "idRelevance": 3
+        },
+        {
+          "idSymptom": 13,
+          "idVariant":10,
+          "idValue": null,
+          "idRelevance": 2
+        }
+
+      ]
+    },{
+      "id": 4,
+      "nameDisease": "Приложение определило у вас столбняк",
+      "doctorCall": "Необходимо срочно вызвать скорую помощь ",
+      "recommendation": "Пациенту нужен полный покой. Во время судорог его необходимо придерживать чтобы избежать травм.\n Между зубами нужно положить узел полотенца",
+      "arrayDiseaseSymptoms": [
+        {
+          "idSymptom": 14,
+          "idVariant": 14,
+          "idValue": null,
+          "idRelevance": 1
+        },
+        {
+          "idSymptom": 15,
+          "idVariant":15,
+          "idValue": null,
+          "idRelevance": 1
+        },
+        {
+          "idSymptom": 16,
+          "idVariant": 14,
+          "idValue": null,
+          "idRelevance": 3
+        },
+        {
+          "idSymptom": 2,
+          "idVariant":2,
+          "idValue": 3,
+          "idRelevance": 1
+        }
+      ]
+    }, {
+      "id": 5,
+      "nameDisease": "Приложение определило у вас оттек Квинке",
+      "doctorCall": "Необходимо срочно взывать скорую помощь ",
+      "recommendation": "Положить на место оттека холодный комперссор, успокоить больного.Дать антигистаминный препарат",
+      "arrayDiseaseSymptoms": [
+        {
+          "idSymptom": 16,
+          "idVariant": 16,
+          "idValue": null,
+          "idRelevance": 1
+        },
+        {
+          "idSymptom": 12,
+          "idVariant":12,
+          "idValue": null,
+          "idRelevance": 2
+        },
+        {
+          "idSymptom": 1,
+          "idVariant":17,
+          "idValue": 3,
           "idRelevance": 2
         }
 

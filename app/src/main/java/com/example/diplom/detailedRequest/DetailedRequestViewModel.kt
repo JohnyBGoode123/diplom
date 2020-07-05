@@ -34,21 +34,12 @@ class DetailedRequestViewModel(
             (title as MutableLiveData).postValue(value)
         }
     val title: LiveData<String> = MutableLiveData()
-
-    private var _emptyChoose: String = ""
+    private var _isEmptyList = false
         set(value) {
             field = value
-            (emptyChoose as MutableLiveData).postValue(value)
+            (isEmptyList as MutableLiveData).postValue(value)
         }
-    val emptyChoose: LiveData<String> = MutableLiveData()
-
-    private var _arrayChecked = emptyArray<Boolean>()
-        set(value) {
-            field = value
-            (arrayChecked as MutableLiveData).postValue(value)
-        }
-    val arrayChecked: LiveData<Array<Boolean>> = MutableLiveData()
-
+    val isEmptyList: LiveData<Boolean> = MutableLiveData(_isEmptyList)
     init {
         DetailedRequestUtils.initListSymptom(ListIdSymptom)
         setCurrentSymptom()
@@ -67,13 +58,13 @@ class DetailedRequestViewModel(
 
     fun buttonClick() {
         if (!checkCache()) {
-            if(tmpArrayBoolean.find { it } == false)
+            if(tmpArrayBoolean.firstOrNull () { it } == null)
             {
-                _emptyChoose = "Выберите значение"
+                _isEmptyList = true
             }
             else
             {
-                _emptyChoose = ""
+                _isEmptyList = false
                 val chosenPosition = tmpArrayBoolean.indexOfFirst { it }
                 val tmp = _listValue?.get(chosenPosition)
                 val tmpUserSymptom = UserSymptoms.listUserSymptom.find { it.idSymptom == currentSymptom }
@@ -91,13 +82,13 @@ class DetailedRequestViewModel(
 
     private fun getGroupBySymptom() {
         val job = viewModelScope.launch(Dispatchers.Default) {
-            val qwe: List<GroupWithValues>? = try {
+            val tmp: List<GroupWithValues>? = try {
                 repository.getGroupWithValues(currentSymptom)
             } catch (t: Throwable) {
                 print(t.message)
                 null
             }
-            qwe?.let {
+            tmp?.let {
                 DetailedRequestUtils.initListGroup(it)
             }
         }
@@ -134,13 +125,13 @@ class DetailedRequestViewModel(
 
     private fun getTitleSymptom() {
         val jobTitle = viewModelScope.launch(Dispatchers.Default) {
-            val qwe: String? = try {
+            val tmp: String? = try {
                 repository.getTitleSymptom(currentSymptom)
             } catch (t: Throwable) {
                 print(t.message)
                 null
             }
-            qwe?.let {
+            tmp?.let {
 
                 _title = it
             }
@@ -153,6 +144,9 @@ class DetailedRequestViewModel(
     }
 
     fun backPressButton() {
+        
+        _isEmptyList = false
+        tmpArrayBoolean.removeAll(tmpArrayBoolean)
         if (DetailedRequestUtils.currentItemListScreen == 0) {
             navController?.navigate(R.id.chosenSymptomsScreen)
         } else {

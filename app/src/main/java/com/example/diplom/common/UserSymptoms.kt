@@ -6,6 +6,11 @@ object UserSymptoms {
     var listUserSymptom: MutableList<UserSymptom> =  mutableListOf()
     private set
     @JvmStatic
+    fun removeListUserSymptom()
+    {
+        listUserSymptom.removeAll(listUserSymptom)
+    }
+    @JvmStatic
     fun addUserSymptom(idSymptom: Int, idValue: Int = 0)
     {
         listUserSymptom.add(UserSymptom(idSymptom,idValue))

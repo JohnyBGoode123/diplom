@@ -36,7 +36,7 @@
       "id": 2,
       "nameSymptoms": "Головная боль",
       "nameBodyPart": "Голова",
-      "title": "Где у вас что болит",
+      "title": "Выберите области боли",
       "arrayGroupValueSymptom":[3],
       "arrayValueSymptoms": [
         {
@@ -49,6 +49,11 @@
           "id": 6,
           "nameValueSymptom": "Виски",
           "idGroup": 3
+        },
+        {
+          "id": 7,
+          "nameValueSymptom": "Вся область",
+          "idGroup": 3
         }
       ]
     },
@@ -56,9 +61,26 @@
       "id": 3,
       "nameSymptoms": "Высокая температура",
       "nameBodyPart": "Общее недомогание",
-      "title": null,
-      "arrayGroupValueSymptom":null,
-      "arrayValueSymptoms": null
+      "title": "Выберите диапазон вашей температуры",
+      "arrayGroupValueSymptom":[4],
+      "arrayValueSymptoms": [
+        {
+
+          "id": 8,
+          "nameValueSymptom": "36.6 - 37.0",
+          "idGroup": 3
+        },
+        {
+          "id": 9,
+          "nameValueSymptom": "37.0 - 38.0",
+          "idGroup": 3
+        },
+        {
+          "id": 8,
+          "nameValueSymptom": "38.0 - 40.0",
+          "idGroup": 3
+        }
+      ]
     },
     {
       "id": 4,
@@ -95,6 +117,70 @@
       "id": 8,
       "nameSymptoms": "Зуд",
       "nameBodyPart": "Кожа",
+      "title": null,
+      "arrayGroupValueSymptom":null,
+      "arrayValueSymptoms": null
+    },{
+      "id": 9,
+      "nameSymptoms": "Сухость во рту",
+      "nameBodyPart": "Рот",
+      "title": null,
+      "arrayGroupValueSymptom":null,
+      "arrayValueSymptoms": null
+    },{
+      "id": 10,
+      "nameSymptoms": "Размытое зрение",
+      "nameBodyPart": "Глаза",
+      "title": null,
+      "arrayGroupValueSymptom":null,
+      "arrayValueSymptoms": null
+    },{
+      "id": 11,
+      "nameSymptoms": "Тошнота",
+      "nameBodyPart": "Живот",
+      "title": null,
+      "arrayGroupValueSymptom":null,
+      "arrayValueSymptoms": null
+    },{
+      "id": 12,
+      "nameSymptoms": "Затрудненное дыхание",
+      "nameBodyPart": "Грудь",
+      "title": null,
+      "arrayGroupValueSymptom":null,
+      "arrayValueSymptoms": null
+    },{
+      "id": 13,
+      "nameSymptoms": "Судороги в животе",
+      "nameBodyPart": "Живот",
+      "title": null,
+      "arrayGroupValueSymptom":null,
+      "arrayValueSymptoms": null
+    },{
+      "id": 14,
+      "nameSymptoms": "Спазм челюсти",
+      "nameBodyPart": "Рот",
+      "title": null,
+      "arrayGroupValueSymptom":null,
+      "arrayValueSymptoms": null
+    },{
+      "id": 15,
+      "nameSymptoms": "Сардоническая улыбка",
+      "nameBodyPart": "Рот",
+      "title": null,
+      "arrayGroupValueSymptom":null,
+      "arrayValueSymptoms": null
+    },{
+      "id": 16,
+      "nameSymptoms": "Конвульсии",
+      "nameBodyPart": "Общее недомогание",
+      "title": null,
+      "arrayGroupValueSymptom":null,
+      "arrayValueSymptoms": null
+    },
+    {
+      "id": 17,
+      "nameSymptoms": "Плотный оттек отдельной части лица",
+      "nameBodyPart": "Голова",
       "title": null,
       "arrayGroupValueSymptom":null,
       "arrayValueSymptoms": null

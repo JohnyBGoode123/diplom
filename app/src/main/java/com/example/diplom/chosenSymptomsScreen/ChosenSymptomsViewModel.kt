@@ -12,22 +12,18 @@ import kotlinx.coroutines.launch
 class ChosenSymptomsViewModel(
     private val repository: ChosenSymptomsScreenRepository
 ) : ViewModel() {
-
     private var _listSymptoms: MutableList<SymptomsModel>? = null
         set(value) {
             field = value
             (listSymptoms as MutableLiveData).postValue(value)
         }
     val listSymptoms: LiveData<MutableList<SymptomsModel>> = MutableLiveData()
-
     private var _isEmptyList = false
         set(value) {
             field = value
             (isEmptyList as MutableLiveData).postValue(value)
         }
     val isEmptyList: LiveData<Boolean> = MutableLiveData(_isEmptyList)
-
-
     init {
 
         viewModelScope.launch {
@@ -44,22 +40,18 @@ class ChosenSymptomsViewModel(
             }
         }
     }
-
     private fun findItemByName(nameSymptom: String): SymptomsModel? {
         return _listSymptoms?.find { it.nameSymptom == nameSymptom }
     }
-
     private fun deleteItmByName(symptom: SymptomsModel) {
         _listSymptoms?.let { _listSymptoms?.remove(symptom) }
     }
-
     fun updateSymptom(nameSymptom: String) {
         val symptom = findItemByName(nameSymptom)
         if (symptom != null) {
             deleteItmByName(symptom)
             symptom.selectionMark = false
         }
-
         viewModelScope.launch {
             try {
                 if (symptom != null) {
@@ -67,12 +59,11 @@ class ChosenSymptomsViewModel(
                 }
             } catch (t: Throwable) {
                 print(t.message)
-
             }
         }
     }
-
     fun initRoute(): MutableList<Int>? {
+        UserSymptoms.removeListUserSymptom()
         val tmpList: MutableList<Int> = mutableListOf()
         _listSymptoms?.let {
             for (i in it) {
@@ -89,12 +80,3 @@ class ChosenSymptomsViewModel(
         _isEmptyList = true
     }
 }
-/* viewModelScope.launch {
-            var tmpList: List<Int> = try {
-                repository.getIdScreenChosenSymptoms()
-            } catch (t: Throwable) {
-                print(t.message)
-                null
-            } as List<Int>
-            ScreenRoute.setlistRoute(tmpList)
-        }*/
