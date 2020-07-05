@@ -1,22 +1,24 @@
 package com.example.diplom.common
 
 import android.app.Application
+import android.content.Context
 import androidx.room.Room
 import com.example.diplom.common.dagger.component.CurrentSymptomsComponent
 import com.example.diplom.common.dagger.component.DaggerCurrentSymptomsComponent
 import com.example.diplom.common.dagger.module.*
 import com.example.diplom.database.AppDataBase
 import com.example.diplom.database.InitDB
+import javax.inject.Inject
 
-class App: Application() {
-    private lateinit var initDB: InitDB
-    private var database:  AppDataBase? = null
+class App : Application() {
+    lateinit var initDB: InitDB
+    private var database: AppDataBase? = null
     override fun onCreate() {
         super.onCreate()
-      instance = this
-      database = Room.databaseBuilder(this, AppDataBase::class.java, "database")
-          .fallbackToDestructiveMigration()
-          .build()
+        instance = this
+        database = Room.databaseBuilder(this, AppDataBase::class.java, "database")
+            .fallbackToDestructiveMigration()
+            .build()
         repositories = DaggerCurrentSymptomsComponent
             .builder()
             .appDataBase(database)
@@ -24,18 +26,23 @@ class App: Application() {
             .chosenSymptomsScreenModule(ChosenSymptomsScreenModule())
             .chooseBodyPartModule(ChooseBodyPartModule())
             .diagnosisModule(DiagnosisModule())
-            .coughModule(CoughModule())
+            .detailedRequestModule(DetailedRequestModule())
+            .initDBModule(InitDBModule())
+            .jsonModule(JsonModule())
             .build()
-        initDB = InitDB()
-        initDB.fillBD(applicationContext)
+        initDB = repositories.getInitDB()
+
 
     }
 
-      companion object {
+    companion object {
         lateinit var repositories: CurrentSymptomsComponent
             private set
-        var instance: App? = null
+        lateinit var instance: App
     }
-    fun getDatabase(): AppDataBase? =  database
 
+    fun getDatabase(): AppDataBase? = database
+    fun getContext(): Context {
+        return applicationContext
+    }
 }

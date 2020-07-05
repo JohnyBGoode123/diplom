@@ -47,4 +47,5 @@ ChooseBodyPartViewModel(
     {
         navigator.clickButton(text)
     }
+
 }

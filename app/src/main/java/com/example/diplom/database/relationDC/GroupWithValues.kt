@@ -8,7 +8,7 @@ data class GroupWithValues(
     @Embedded val group: DaoSymptoms.GroupValueSymptoms,
     @Relation(
         parentColumn = "idGroup",
-        entityColumn = "idGroup"
+        entityColumn = "idGroupValue"
     )
     val value: List<DaoSymptoms.ValueSymptoms>
 )

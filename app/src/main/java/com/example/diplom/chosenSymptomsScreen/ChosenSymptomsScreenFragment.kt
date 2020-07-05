@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
@@ -12,9 +13,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.diplom.R
 import com.example.diplom.common.App
-import com.example.diplom.common.ScreenRoute
 import com.example.diplom.common.models.SymptomsModel
 import com.example.diplom.databinding.FragmentFinalListsymptomsBinding
+import com.example.diplom.navController
 import kotlinx.android.synthetic.main.fragment_current_symptoms.*
 
 class ChosenSymptomsScreenFragment : Fragment() {
@@ -35,17 +36,14 @@ class ChosenSymptomsScreenFragment : Fragment() {
     ): View? {
         dataBinding = FragmentFinalListsymptomsBinding.inflate(inflater, container, false)
         dataBinding.button.setOnClickListener {
-            if(viewModel.listSymptoms.value?.size == 0)
-            {
+            if (viewModel.listSymptoms.value?.size == 0) {
                 viewModel.setIsEmptyList()
-            }
-            else
-            {
-                viewModel.initRoute()
-                ScreenRoute.nextScreen()
-            }
+            } else {
 
-
+                val arg = viewModel.initRoute()
+                val bundle = bundleOf("args" to arg)
+                navController?.navigate(R.id.detailedRequest, bundle)
+            }
         }
         return dataBinding.root
     }

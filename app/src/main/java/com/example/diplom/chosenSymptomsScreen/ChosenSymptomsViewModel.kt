@@ -4,11 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.diplom.common.Constants
 import com.example.diplom.common.ScreenRoute
 import com.example.diplom.common.UserSymptoms
 import com.example.diplom.common.models.SymptomsModel
-import com.example.diplom.common.models.UserSymptom
 import kotlinx.coroutines.launch
 
 class ChosenSymptomsViewModel(
@@ -42,7 +40,8 @@ class ChosenSymptomsViewModel(
             }
             _isEmptyList = false
             listSymptoms?.let {
-                _listSymptoms = it as MutableList<SymptomsModel> }
+                _listSymptoms = it as MutableList<SymptomsModel>
+            }
         }
     }
 
@@ -73,36 +72,22 @@ class ChosenSymptomsViewModel(
         }
     }
 
-    fun initRoute() {
-        var tmpList: MutableList<Int> = mutableListOf()
-      for (i in _listSymptoms?.filter { it.selectionMark }!!)
-      {
-          tmpList.add(i.id)
-      }
-        tmpList = removeGeneralSymptom(tmpList)
-        ScreenRoute.initListRoute(tmpList.distinct() as MutableList<Int>)
+    fun initRoute(): MutableList<Int>? {
+        val tmpList: MutableList<Int> = mutableListOf()
+        _listSymptoms?.let {
+            for (i in it) {
+                if (i.selectionMark && i.title != null)
+                    tmpList.add(i.id)
+                if (i.selectionMark && i.title == null) {
+                    UserSymptoms.addUserSymptom(i.id)
+                }
+            }
+        }
+        return tmpList
     }
     fun setIsEmptyList() {
         _isEmptyList = true
     }
-}
-
-private fun removeGeneralSymptom(tmpList: MutableList<Int>): MutableList<Int>
-{
-    val tmpListScreen: MutableList<Int> = mutableListOf()
-    for (i in tmpList)
-    if (Constants.mapScreens.containsKey(i))
-    {
-        tmpListScreen.add(i)
-    }
-    else{
-        UserSymptoms.addUserSymptom(i)
-    }
-    if(tmpListScreen.size ==0)
-    {
-        tmpListScreen.add(0)
-    }
-    return tmpListScreen
 }
 /* viewModelScope.launch {
             var tmpList: List<Int> = try {

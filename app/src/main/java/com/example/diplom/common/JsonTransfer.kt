@@ -8,6 +8,10 @@ import com.example.diplom.database.DaoSymptoms
 import com.google.gson.Gson
 
 class JsonTransfer(_ctx: Context) {
+    var objSymptom: DCSymptoms
+    var objDisease: DCDiseases
+    var objRelevance: DCRelevance
+
     var listSymptoms: MutableCollection<DaoSymptoms.Symptoms> =
         mutableListOf()
     var listValueSymptoms: MutableCollection<DaoSymptoms.ValueSymptoms> =
@@ -29,6 +33,9 @@ class JsonTransfer(_ctx: Context) {
         }
 
     init {
+        objSymptom = Gson().fromJson(getJsonString("Symptoms.json"), DCSymptoms::class.java)
+        objDisease = Gson().fromJson(getJsonString("Disease.json"), DCDiseases::class.java)
+        objRelevance = Gson().fromJson(getJsonString("Relevance.json"), DCRelevance::class.java)
         setListSymptoms()
         setListValueSymptoms()
         setListDisease()
@@ -39,9 +46,8 @@ class JsonTransfer(_ctx: Context) {
     }
 
     private fun setListSymptoms() {
-        val obj: DCSymptoms =
-            Gson().fromJson(getJsonString("Symptoms.json"), DCSymptoms::class.java)
-        for (i in obj.arraySymptoms) {
+
+        for (i in objSymptom.arraySymptoms) {
             listSymptoms.add(
                 DaoSymptoms.Symptoms(
                     i.id,
@@ -56,9 +62,8 @@ class JsonTransfer(_ctx: Context) {
     }
 
     private fun setGroupValueSymptoms() {
-        val obj: DCSymptoms =
-            Gson().fromJson(getJsonString("Symptoms.json"), DCSymptoms::class.java)
-        for (i in obj.arraySymptoms) {
+
+        for (i in objSymptom.arraySymptoms) {
             // а если здесь симптом будет пустой, что тогда? Может быть let сделать
             i.arrayGroupValueSymptom?.let {
                 for (j in it) {
@@ -74,9 +79,8 @@ class JsonTransfer(_ctx: Context) {
     }
 
     private fun setListValueSymptoms() {
-        val obj: DCSymptoms =
-            Gson().fromJson(getJsonString("Symptoms.json"), DCSymptoms::class.java)
-        for (i in obj.arraySymptoms) {
+
+        for (i in objSymptom.arraySymptoms) {
             // а если здесь симптом будет пустой, что тогда? Может быть let сделать
             i.arrayValueSymptoms?.let {
                 for (j in it) {
@@ -93,9 +97,8 @@ class JsonTransfer(_ctx: Context) {
     }
 
     private fun setListDisease() {
-        val obj: DCDiseases =
-            Gson().fromJson(getJsonString("Disease.json"), DCDiseases::class.java)
-        for (i in obj.arrayDisease) {
+
+        for (i in objDisease.arrayDisease) {
             listDisease.add(
                 DaoSymptoms.Disease(
                     i.id,
@@ -108,9 +111,8 @@ class JsonTransfer(_ctx: Context) {
     }
 
     private fun setDiseaseSymptomsCrossRef() {
-        val obj: DCDiseases =
-            Gson().fromJson(getJsonString("Disease.json"), DCDiseases::class.java)
-        for (i in obj.arrayDisease) {
+
+        for (i in objDisease.arrayDisease) {
             i.arrayDiseaseSymptoms?.let {
                 for (j in it) {
                     listVariantSymptomsCrossRef.add(
@@ -129,9 +131,8 @@ class JsonTransfer(_ctx: Context) {
 
 
     private fun setListRelevance() {
-        val obj: DCRelevance =
-            Gson().fromJson(getJsonString("Relevance.json"), DCRelevance::class.java)
-        for (i in obj.arrayRelevance) {
+
+        for (i in objRelevance.arrayRelevance) {
             listRelevance.add(
                 DaoSymptoms.Relevance(
                     i.id,
@@ -142,9 +143,8 @@ class JsonTransfer(_ctx: Context) {
     }
 
     private fun setListVariant() {
-        val obj: DCDiseases =
-            Gson().fromJson(getJsonString("Disease.json"), DCDiseases::class.java)
-        for (i in obj.arrayDisease) {
+
+        for (i in objDisease.arrayDisease) {
             i.arrayDiseaseSymptoms?.let {
                 for (j in it) {
                     listVariant.add(

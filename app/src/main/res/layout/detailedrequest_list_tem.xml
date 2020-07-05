@@ -9,7 +9,7 @@
 
         <variable
             name="viewModel"
-            type="com.example.diplom.detailedInquiry.DetailedInquiryViewModel" />
+            type="com.example.diplom.detailedRequest.DetailedRequestViewModel"/>
 
         <variable
             name="position"

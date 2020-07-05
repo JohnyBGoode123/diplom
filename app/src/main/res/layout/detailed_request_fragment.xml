@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".detailedInquiry.DetailedInquiryFragment">
+    tools:context=".detailedRequest.DetailedRequestFragment">
 
     <data>
-
+        <import type="android.view.View" />
+        <variable
+            name="viewModel"
+            type="com.example.diplom.detailedRequest.DetailedRequestViewModel" />
     </data>
 
     <RelativeLayout
@@ -17,19 +20,28 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="40dp"
-            android:text="Выберите характер кашля"
+            android:text="@{String.valueOf(viewModel.title)}"
             android:textSize="30sp"
             android:textStyle="bold" />
 
+        <TextView
+            android:layout_below="@+id/title"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/lessSymptomsName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/emptyListSymptoms"
+            android:visibility="@{viewModel.isEmptyList() == true? View.VISIBLE: View.INVISIBLE}">
 
+        </TextView>
         <androidx.recyclerview.widget.RecyclerView
 
-            android:id="@+id/cough_recycler_view"
+            android:id="@+id/dr_recycler_view"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/title"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="50dp"
             android:orientation="vertical"
 
             >
@@ -48,6 +60,5 @@
 
 
     </RelativeLayout>
-
 
 </layout>

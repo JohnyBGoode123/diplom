@@ -73,8 +73,13 @@
             tools:layout="@layout/temperature_fragment" />
     </navigation>
     <fragment
-        android:id="@+id/coughFragment2"
+        android:id="@+id/detailedInquiryragment"
         android:name="com.example.diplom.detailedInquiry.DetailedInquiryFragment"
         android:label="cough_fragment"
-        tools:layout="@layout/detailedinquiry_fragment" />
+        tools:layout="@layout/detailedInquiry_fragment" />
+    <fragment
+        android:id="@+id/detailedRequest"
+        android:name="com.example.diplom.detailedRequest.DetailedRequestFragment"
+        android:label="detailed_request_fragment"
+        tools:layout="@layout/detailed_request_fragment" />
 </navigation>

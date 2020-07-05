@@ -1,37 +1,63 @@
 package com.example.diplom.database
 
-import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.diplom.common.App
 import com.example.diplom.common.JsonTransfer
 import kotlinx.coroutines.launch
 
-class InitDB : ViewModel() {
+class InitDB(
+    val daoSymptoms: DaoSymptoms,
+    val jsonTransfer: JsonTransfer
+) : ViewModel() {
     init {
-        val db: AppDataBase? = App.instance?.getDatabase()
-        initDB = db?.getDao()
+        if(checkDB()>0)
+        {
+            setInitState()
+        }
+        else
+        {
+            fillBD()
+        }
+
 
     }
 
-    companion object {
-        var initDB: DaoSymptoms? = null
-    }
-
-    fun fillBD(ctx: Context) {
-        val jsonTransfer = JsonTransfer(ctx)
+    private fun setInitState() {
         viewModelScope.launch {
             try {
+               daoSymptoms.setSymptomSmFalse()
+            } catch (t: Throwable) {
+                print(t.message)
+            }
+        }
+    }
+    private fun checkDB(): Int
+    {
+        var result = 0
+        viewModelScope.launch {
+            val tmp: Int = try {
+                daoSymptoms.getCountLinesSymptoms()
+            } catch (t: Throwable) {
+                print(t.message)
+               -1
+            }
+            result = tmp
 
-                initDB?.insertSymptoms(jsonTransfer.listSymptoms)
-                initDB?.insertValueSymptoms(jsonTransfer.listValueSymptoms)
-                initDB?.insertDisease(jsonTransfer.listDisease)
-                initDB?.insertVariantSymptomsCrossRef(jsonTransfer.listVariantSymptomsCrossRef)
-                initDB?.insertVariantSymptoms(jsonTransfer.listVariant)
-                initDB?.insertRelevance(jsonTransfer.listRelevance)
-                initDB?.insertGroupValueSymptoms(jsonTransfer.listGroupValueSymptoms)
+        }
+        return result
 
+    }
 
+    private fun fillBD() {
+        viewModelScope.launch {
+            try {
+                daoSymptoms.insertSymptoms(jsonTransfer.listSymptoms)
+                daoSymptoms.insertValueSymptoms(jsonTransfer.listValueSymptoms)
+                daoSymptoms.insertDisease(jsonTransfer.listDisease)
+                daoSymptoms.insertVariantSymptomsCrossRef(jsonTransfer.listVariantSymptomsCrossRef)
+                daoSymptoms.insertVariantSymptoms(jsonTransfer.listVariant)
+                daoSymptoms.insertRelevance(jsonTransfer.listRelevance)
+                daoSymptoms.insertGroupValueSymptoms(jsonTransfer.listGroupValueSymptoms)
             } catch (t: Throwable) {
                 print(t.message)
             }

@@ -23,8 +23,6 @@ object ScreenRoute {
     fun initListRoute(tmpList: MutableList<Int>) {
         listRoute = tmpList
         listRouteIterator = listRoute.iterator()
-
-
     }
 
     @JvmStatic

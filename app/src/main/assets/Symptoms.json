@@ -36,9 +36,21 @@
       "id": 2,
       "nameSymptoms": "Головная боль",
       "nameBodyPart": "Голова",
-      "title": null,
-      "arrayGroupValueSymptom":null,
-      "arrayValueSymptoms": null
+      "title": "Где у вас что болит",
+      "arrayGroupValueSymptom":[3],
+      "arrayValueSymptoms": [
+        {
+
+          "id": 5,
+          "nameValueSymptom": "Затылок",
+          "idGroup": 3
+        },
+        {
+          "id": 6,
+          "nameValueSymptom": "Виски",
+          "idGroup": 3
+        }
+      ]
     },
     {
       "id": 3,
